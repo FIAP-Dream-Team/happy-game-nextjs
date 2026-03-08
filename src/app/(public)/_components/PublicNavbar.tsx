@@ -9,11 +9,16 @@ import { Button } from "@/components/ui/Button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/Sheet";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Icon } from "@/components/ui/Icon";
+import { NavigationButton } from "@/components/ui/NavigationButton";
 
 const ROUTES = [
-  { href: "/", label: "Início" },
-  { href: "/historia", label: "História" },
-  { href: "/plataforma", label: "Plataforma" },
+  { href: "/", name: "Início", icon: "Home" as const },
+  {
+    href: "/historia",
+    name: "História",
+    icon: "GalleryHorizontalEnd" as const,
+  },
+  { href: "/plataforma", name: "Plataforma", icon: "PanelsTopLeft" as const },
 ];
 
 export function PublicNavbar() {
@@ -21,11 +26,7 @@ export function PublicNavbar() {
 
   return (
     <Navbar
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50",
-        "bg-primary-green-darker-1 dark:bg-neutral-950 text-neutral-950 dark:text-neutral-50",
-        "dark:border-b dark:border-border"
-      )}
+      className={cn("fixed top-0 left-0 right-0 z-50")}
       containerClassName="container mx-auto p-4 md:p-6"
       logo={
         <Link href="/">
@@ -34,26 +35,20 @@ export function PublicNavbar() {
         </Link>
       }
       navItems={
-        <ul className="flex items-center gap-4">
+        <>
           {ROUTES.map((link) => {
             const isActive = pathname === link.href;
             return (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className={cn(
-                    "px-3 py-3 rounded transition-colors font-medium",
-                    isActive
-                      ? "bg-primary-green-darker-2 dark:bg-primary-green-darker-2/30 text-primary-green-base"
-                      : "hover:bg-primary-green-base dark:hover:bg-gray-500/15 dark:text-gray-300 text-gray-900 hover:text-white"
-                  )}
-                >
-                  {link.label}
-                </Link>
-              </li>
+              <NavigationButton
+                isActive={isActive}
+                key={link.href}
+                href={link.href}
+                icon={link.icon}
+                name={link.name}
+              />
             );
           })}
-        </ul>
+        </>
       }
       rightActions={
         <>
@@ -68,12 +63,7 @@ export function PublicNavbar() {
           <ThemeToggle />
           <Sheet>
             <SheetTrigger asChild>
-              <Button
-                variant="tertiary"
-                size="medium"
-                className="h-9 w-9 min-h-9 min-w-9 p-2 border border-border-primary"
-                aria-label="Abrir menu"
-              >
+              <Button variant="secondary" size="large" aria-label="Abrir menu">
                 <Icon name="Menu" size={20} />
               </Button>
             </SheetTrigger>
@@ -85,18 +75,13 @@ export function PublicNavbar() {
                 {ROUTES.map((link) => {
                   const isActive = pathname === link.href;
                   return (
-                    <Link
+                    <NavigationButton
+                      isActive={isActive}
                       key={link.href}
                       href={link.href}
-                      className={cn(
-                        "w-full text-center px-4 py-3 rounded transition-colors text-lg",
-                        isActive
-                          ? "bg-primary-green-darker-2 dark:bg-primary-green-darker-2 text-neutral-50"
-                          : "hover:bg-bg-secondary"
-                      )}
-                    >
-                      {link.label}
-                    </Link>
+                      icon={link.icon}
+                      name={link.name}
+                    />
                   );
                 })}
                 <Button variant="default" className="w-full" asChild>

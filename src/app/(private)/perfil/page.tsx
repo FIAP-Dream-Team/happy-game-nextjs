@@ -28,7 +28,6 @@ export default async function Perfil() {
                   alt={user.name || "Avatar"}
                   fill
                   className="object-cover"
-                  sizes="128px"
                 />
               </div>
             )}

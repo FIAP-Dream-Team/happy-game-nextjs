@@ -10,11 +10,7 @@ export function LogoutButton() {
   };
 
   return (
-    <Button
-      onClick={handleLogout}
-      variant="secondary"
-      className="border-primary-green-base bg-transparent hover:bg-primary-green-base/10 text-neutral-950 dark:text-white"
-    >
+    <Button onClick={handleLogout} variant="secondary">
       <LogOut className="h-4 w-4" />
       Sair
     </Button>

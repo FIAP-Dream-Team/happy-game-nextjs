@@ -35,6 +35,8 @@ import {
   Users,
   X,
   type LucideIcon,
+  GalleryHorizontalEnd,
+  PanelsTopLeft,
 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -72,6 +74,8 @@ const iconMap = {
   User,
   Users,
   X,
+  GalleryHorizontalEnd,
+  PanelsTopLeft,
 } as const satisfies Record<string, LucideIcon>;
 
 export type IconName = keyof typeof iconMap;
