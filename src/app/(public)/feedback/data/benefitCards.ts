@@ -1,5 +1,5 @@
-import type { BenefitCard } from "../types";
-import type { Genre } from "../../cadastro/types";
+import type { BenefitCard } from "@feedback/types";
+import type { Genre } from "@cadastro/types";
 
 // Fixed cards that appear for everyone
 export const fixedCards: BenefitCard[] = [

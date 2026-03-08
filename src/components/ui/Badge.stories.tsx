@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { Badge } from "./Badge";
+import { Badge } from "@components/ui/Badge";
 
 const meta = {
   title: "UI/Badge",
@@ -7,7 +7,10 @@ const meta = {
   parameters: { layout: "centered" },
   tags: ["autodocs"],
   argTypes: {
-    variant: { control: "select", options: ["default", "secondary", "tertiary", "neutral"] },
+    variant: {
+      control: "select",
+      options: ["default", "secondary", "tertiary", "neutral"],
+    },
   },
 } satisfies Meta<typeof Badge>;
 

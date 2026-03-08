@@ -1,6 +1,6 @@
 // Types for feedback page
 
-import type { Platform, Genre } from "../cadastro/types";
+import type { Platform, Genre } from "@cadastro/types";
 
 export interface UserFeedbackData {
   fullName: string;

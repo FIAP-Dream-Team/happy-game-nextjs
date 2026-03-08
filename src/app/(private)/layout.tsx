@@ -1,8 +1,8 @@
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
-import { PrivateNavbar } from "./_components/PrivateNavbar";
-import { PrivateAside } from "./_components/PrivateAside";
+import { PrivateNavbar } from "@privateComponents/PrivateNavbar";
+import { PrivateAside } from "@privateComponents/PrivateAside";
 
 export default async function PrivateLayout({
   children,

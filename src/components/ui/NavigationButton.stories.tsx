@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { NavigationButton } from "./NavigationButton";
+import { NavigationButton } from "@components/ui/NavigationButton";
 
 const meta = {
   title: "UI/NavigationButton",

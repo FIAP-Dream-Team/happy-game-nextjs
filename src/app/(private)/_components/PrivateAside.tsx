@@ -1,7 +1,7 @@
 "use client";
 
-import { AsideBlock } from "./AsideBlock";
-import { PostItemSmall } from "./PostItemSmall";
+import { AsideBlock } from "@privateComponents/AsideBlock";
+import { PostItemSmall } from "@privateComponents/PostItemSmall";
 import { Input } from "@/components/ui/Input";
 import {
   Select,

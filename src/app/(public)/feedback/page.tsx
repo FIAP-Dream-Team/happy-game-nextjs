@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { HeroSection } from "./_components/HeroSection";
-import { BenefitsSection } from "./_components/BenefitsSection";
-import { CTASection } from "./_components/CTASection";
+import { HeroSection } from "@feedback/_components/HeroSection";
+import { BenefitsSection } from "@feedback/_components/BenefitsSection";
+import { CTASection } from "@feedback/_components/CTASection";
 import { Paragraph } from "@/components/ui/Typography";
-import type { UserFeedbackData } from "./types";
+import type { UserFeedbackData } from "@feedback/types";
 import { Loader2 } from "lucide-react";
 
 export default function FeedbackPage() {

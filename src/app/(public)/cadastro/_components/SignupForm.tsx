@@ -8,8 +8,8 @@ import type {
   Genre,
   Platform,
   ValidationErrors,
-} from "../types";
-import { useFormValidation } from "../hooks/useFormValidation";
+} from "@cadastro/types";
+import { useFormValidation } from "@cadastro/hooks/useFormValidation";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Label } from "@/components/ui/Label";

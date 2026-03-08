@@ -2,7 +2,7 @@
 
 import { Check } from "lucide-react";
 import { H1, Paragraph, Span } from "@/components/ui/Typography";
-import type { Platform } from "../../cadastro/types";
+import type { Platform } from "@cadastro/types";
 
 interface HeroSectionProps {
   fullName: string;
@@ -65,7 +65,11 @@ export function HeroSection({ fullName, platform }: HeroSectionProps) {
           <Paragraph
             variant="text1"
             className="text-text-muted mb-8 animate-fadeIn"
-            style={{ animationDelay: "0.2s", opacity: 0, animationFillMode: "forwards" }}
+            style={{
+              animationDelay: "0.2s",
+              opacity: 0,
+              animationFillMode: "forwards",
+            }}
           >
             {description}
           </Paragraph>
@@ -73,10 +77,16 @@ export function HeroSection({ fullName, platform }: HeroSectionProps) {
           {/* Success Badge */}
           <div
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary/10 dark:bg-primary/20 border border-primary/20 animate-fadeIn"
-            style={{ animationDelay: "0.4s", opacity: 0, animationFillMode: "forwards" }}
+            style={{
+              animationDelay: "0.4s",
+              opacity: 0,
+              animationFillMode: "forwards",
+            }}
           >
             <Check className="h-5 w-5 text-primary" />
-            <Span weight="bold" className="text-primary">Cadastro realizado com sucesso!</Span>
+            <Span weight="bold" className="text-primary">
+              Cadastro realizado com sucesso!
+            </Span>
           </div>
         </div>
       </div>

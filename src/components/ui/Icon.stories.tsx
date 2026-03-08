@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { Icon } from "./Icon";
-import { Span } from "./Typography";
+import { Icon } from "@components/ui/Icon";
+import { Span } from "@components/ui/Typography";
 
 const meta = {
   title: "UI/Icon",
@@ -47,14 +47,16 @@ export const AllIcons: Story = {
   args: { name: "Home" },
   render: () => (
     <div className="flex flex-wrap gap-4">
-      {(["Home", "Rocket", "Gamepad2", "User", "Mail", "Check", "Menu"] as const).map(
-        (name) => (
-          <div key={name} className="flex flex-col items-center gap-1">
-            <Icon name={name} size={24} />
-            <Span variant="text4" className="text-text-secondary">{name}</Span>
-          </div>
-        )
-      )}
+      {(
+        ["Home", "Rocket", "Gamepad2", "User", "Mail", "Check", "Menu"] as const
+      ).map((name) => (
+        <div key={name} className="flex flex-col items-center gap-1">
+          <Icon name={name} size={24} />
+          <Span variant="text4" className="text-text-secondary">
+            {name}
+          </Span>
+        </div>
+      ))}
     </div>
   ),
 };

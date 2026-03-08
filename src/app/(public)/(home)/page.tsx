@@ -1,10 +1,9 @@
-import { HeroSection } from "./_components/HeroSection";
-import { CommunitiesSection } from "./_components/CommunitiesSection";
-import { StatsSection } from "./_components/StatsSection";
-import { CTASection } from "./_components/CTASection";
-import Image from "next/image";
-import { GameGodImage } from "./_components/GameGodImage";
-import { KonamiCodeEasterEgg } from "./_components/KonamiCodeEasterEgg";
+import { HeroSection } from "@home/_components/HeroSection";
+import { CommunitiesSection } from "@home/_components/CommunitiesSection";
+import { StatsSection } from "@home/_components/StatsSection";
+import { CTASection } from "@home/_components/CTASection";
+import { GameGodImage } from "@home/_components/GameGodImage";
+import { KonamiCodeEasterEgg } from "@home/_components/KonamiCodeEasterEgg";
 
 export default function Home() {
   return (

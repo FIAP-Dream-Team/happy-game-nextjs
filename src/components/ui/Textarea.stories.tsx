@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { Textarea } from "./Textarea";
+import { Textarea } from "@components/ui/Textarea";
 
 const meta = {
   title: "UI/Textarea",

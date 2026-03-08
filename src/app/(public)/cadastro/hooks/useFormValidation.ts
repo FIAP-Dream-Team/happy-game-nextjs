@@ -1,12 +1,16 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import type { SignupFormData, ValidationErrors, FormStep } from "../types";
+import type {
+  SignupFormData,
+  ValidationErrors,
+  FormStep,
+} from "@cadastro/types";
 
 function validateField(
   fieldName: keyof SignupFormData,
   value: unknown,
-  formData: SignupFormData
+  formData: SignupFormData,
 ): string | undefined {
   switch (fieldName) {
     case "fullName":
@@ -99,7 +103,6 @@ function validateField(
       return undefined;
 
     case "message":
-  
       return undefined;
 
     default:
@@ -107,10 +110,9 @@ function validateField(
   }
 }
 
-
 function validateStep(
   step: FormStep,
-  formData: SignupFormData
+  formData: SignupFormData,
 ): ValidationErrors {
   const errors: ValidationErrors = {};
 
@@ -124,7 +126,11 @@ function validateStep(
 
     case 2: // password
       errors.password = validateField("password", formData.password, formData);
-      errors.confirmPassword = validateField("confirmPassword", formData.confirmPassword, formData);
+      errors.confirmPassword = validateField(
+        "confirmPassword",
+        formData.confirmPassword,
+        formData,
+      );
       break;
 
     case 3: // preferencias
@@ -134,16 +140,19 @@ function validateStep(
 
     case 4: // finalizando
       errors.message = validateField("message", formData.message, formData);
-      errors.acceptTerms = validateField("acceptTerms", formData.acceptTerms, formData);
+      errors.acceptTerms = validateField(
+        "acceptTerms",
+        formData.acceptTerms,
+        formData,
+      );
       break;
 
     default:
       break;
   }
 
-  
   return Object.fromEntries(
-    Object.entries(errors).filter(([_, v]) => v !== undefined)
+    Object.entries(errors).filter(([_, v]) => v !== undefined),
   ) as ValidationErrors;
 }
 
@@ -151,7 +160,11 @@ export function useFormValidation() {
   const [errors, setErrors] = useState<ValidationErrors>({});
 
   const validateSingleField = useCallback(
-    (fieldName: keyof SignupFormData, value: unknown, formData: SignupFormData) => {
+    (
+      fieldName: keyof SignupFormData,
+      value: unknown,
+      formData: SignupFormData,
+    ) => {
       const error = validateField(fieldName, value, formData);
       setErrors((prev) => {
         if (error) {
@@ -163,7 +176,7 @@ export function useFormValidation() {
       });
       return error;
     },
-    []
+    [],
   );
 
   const validateCurrentStep = useCallback(
@@ -172,7 +185,7 @@ export function useFormValidation() {
       setErrors(stepErrors);
       return Object.keys(stepErrors).length === 0;
     },
-    []
+    [],
   );
 
   const clearErrors = useCallback(() => {

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { MetacriticScore } from "./MetacriticScore";
+import { MetacriticScore } from "@components/ui/MetacriticScore";
 
 const meta = {
   title: "UI/MetacriticScore",

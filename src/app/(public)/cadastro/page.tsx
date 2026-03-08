@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { H1, Paragraph, Span } from "@/components/ui/Typography";
-import { SignupForm } from "./_components/SignupForm";
+import { SignupForm } from "@cadastro/_components/SignupForm";
 import { ArrowLeft } from "lucide-react";
 
 export default function CadastroPage() {
@@ -48,7 +48,10 @@ export default function CadastroPage() {
               Happy Game
             </Span>
           </H1>
-          <Paragraph variant="text1" className="text-text-muted max-w-2xl mx-auto">
+          <Paragraph
+            variant="text1"
+            className="text-text-muted max-w-2xl mx-auto"
+          >
             Junte-se à lista de espera e seja um dos primeiros a explorar a nova
             comunidade gamer
           </Paragraph>

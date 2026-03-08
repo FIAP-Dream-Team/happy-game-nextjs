@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -19,7 +23,51 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ],
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@privateComponents/*": [
+        "./src/app/(private)/_components/*"
+      ],
+      "@publicComponents/*": [
+        "./src/app/(public)/_components/*"
+      ],
+      "@home/*": [
+        "./src/app/(public)/(home)/*"
+      ],
+      "@providers/*": [
+        "./src/providers/*"
+      ],
+      "@feed/*": [
+        "./src/app/(private)/feed/*"
+      ],
+      "@perfil/*": [
+        "./src/app/(private)/perfil/*"
+      ],
+      "@login/*": [
+        "./src/app/(public)/login/*"
+      ],
+      "@cadastro/*": [
+        "./src/app/(public)/cadastro/*"
+      ],
+      "@feedback/*": [
+        "./src/app/(public)/feedback/*"
+      ],
+      "@historia/*": [
+        "./src/app/(public)/historia/*"
+      ],
+      "@plataforma/*": [
+        "./src/app/(public)/plataforma/*"
+      ],
+      "@api/*": [
+        "./src/app/api/*"
+      ],
+      "@lib/*": [
+        "./src/lib/*"
+      ],
     }
   },
   "include": [
@@ -30,5 +78,7 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import Link from "next/link";
-import { Navbar } from "./Navbar";
-import { Button } from "./ui/Button";
-import { Icon } from "./ui/Icon";
-import { NavigationButton } from "./ui/NavigationButton";
+import { Navbar } from "@components/Navbar";
+import { Button } from "@components/ui/Button";
+import { Icon } from "@components/ui/Icon";
+import { NavigationButton } from "@components/ui/NavigationButton";
 
 const meta = {
   title: "Layout/Navbar",
@@ -33,7 +33,11 @@ export const Default: Story = {
         <Button variant="secondary" size="medium">
           Perfil
         </Button>
-        <Button variant="tertiary" size="medium" className="h-9 w-9 min-h-9 min-w-9 p-2">
+        <Button
+          variant="tertiary"
+          size="medium"
+          className="h-9 w-9 min-h-9 min-w-9 p-2"
+        >
           <Icon name="Sun" size={20} />
         </Button>
       </>
@@ -50,10 +54,16 @@ export const WithMobileMenu: Story = {
     ),
     navItems: (
       <>
-        <Link href="/" className="rounded px-3 py-2 text-sm text-text-primary hover:bg-bg-secondary">
+        <Link
+          href="/"
+          className="rounded px-3 py-2 text-sm text-text-primary hover:bg-bg-secondary"
+        >
           Início
         </Link>
-        <Link href="/sobre" className="rounded px-3 py-2 text-sm text-text-primary hover:bg-bg-secondary">
+        <Link
+          href="/sobre"
+          className="rounded px-3 py-2 text-sm text-text-primary hover:bg-bg-secondary"
+        >
           Sobre
         </Link>
       </>
@@ -65,7 +75,11 @@ export const WithMobileMenu: Story = {
     ),
     mobileRightActions: (
       <>
-        <Button variant="tertiary" size="medium" className="h-9 w-9 min-h-9 min-w-9 p-2">
+        <Button
+          variant="tertiary"
+          size="medium"
+          className="h-9 w-9 min-h-9 min-w-9 p-2"
+        >
           <Icon name="Menu" size={20} />
         </Button>
       </>

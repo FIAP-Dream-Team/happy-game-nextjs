@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { Button } from "./Button";
-import { Icon } from "./Icon";
+import { Button } from "@components/ui/Button";
+import { Icon } from "@components/ui/Icon";
 
 const meta = {
   title: "UI/Button",
@@ -8,7 +8,10 @@ const meta = {
   parameters: { layout: "centered" },
   tags: ["autodocs"],
   argTypes: {
-    variant: { control: "select", options: ["default", "secondary", "tertiary"] },
+    variant: {
+      control: "select",
+      options: ["default", "secondary", "tertiary"],
+    },
     size: { control: "select", options: ["small", "medium", "large"] },
   },
 } satisfies Meta<typeof Button>;

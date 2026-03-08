@@ -7,7 +7,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "./Select";
+} from "@components/ui/Select";
 
 const meta = {
   title: "UI/Select",

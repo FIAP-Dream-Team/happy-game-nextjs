@@ -1,5 +1,5 @@
-import { PostItem } from "../_components/PostItem";
-import { FeedHeader } from "../_components/FeedHeader";
+import { PostItem } from "@privateComponents/PostItem";
+import { FeedHeader } from "@privateComponents/FeedHeader";
 
 export default function FeedPage() {
   return (

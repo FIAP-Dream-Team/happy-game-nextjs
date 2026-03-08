@@ -2,9 +2,8 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import Image from "next/image";
-import { Mail } from "lucide-react";
-import { H1, H2, H3 } from "@/components/ui/Typography";
-import { LogoutButton } from "./_components/LogoutButton";
+import { H1, H2, H3 } from "@components/ui/Typography";
+import { LogoutButton } from "@perfil/_components/LogoutButton";
 
 export default async function Perfil() {
   const session = await getServerSession(authOptions);
@@ -18,9 +17,7 @@ export default async function Perfil() {
   return (
     <div className="min-h-screen bg-color-background text-neutral-950 dark:text-neutral-50 p-4 md:p-8">
       <div className="max-w-4xl mx-auto">
-        <H1 className="text-neutral-950 dark:text-white mb-8">
-          Meu Perfil
-        </H1>
+        <H1 className="text-neutral-950 dark:text-white mb-8">Meu Perfil</H1>
 
         <div className="bg-background-primary dark:bg-neutral-900 rounded-lg border border-border p-6 md:p-8 space-y-6">
           <div className="flex flex-col md:flex-row items-center md:items-start gap-6">

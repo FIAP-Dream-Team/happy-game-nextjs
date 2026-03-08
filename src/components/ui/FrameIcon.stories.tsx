@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { FrameIcon } from "./FrameIcon";
+import { FrameIcon } from "@components/ui/FrameIcon";
 
 const meta = {
   title: "UI/FrameIcon",
@@ -7,8 +7,14 @@ const meta = {
   parameters: { layout: "centered" },
   tags: ["autodocs"],
   argTypes: {
-    name: { control: "select", options: ["Home", "Rocket", "Gamepad2", "Trophy"] },
-    variant: { control: "select", options: ["primary", "secondary", "tertiary", "neutral"] },
+    name: {
+      control: "select",
+      options: ["Home", "Rocket", "Gamepad2", "Trophy"],
+    },
+    variant: {
+      control: "select",
+      options: ["primary", "secondary", "tertiary", "neutral"],
+    },
     size: { control: "select", options: ["sm", "md", "lg"] },
   },
 } satisfies Meta<typeof FrameIcon>;

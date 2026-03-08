@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { PostItem } from "./PostItem";
+import { PostItem } from "@privateComponents/PostItem";
 
 const meta = {
   title: "Private/PostItem",

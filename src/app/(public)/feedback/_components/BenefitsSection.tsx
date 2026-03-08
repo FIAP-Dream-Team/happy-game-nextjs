@@ -12,9 +12,9 @@ import {
   Gamepad2,
 } from "lucide-react";
 import { H2, H3, Paragraph } from "@/components/ui/Typography";
-import type { BenefitCard } from "../types";
-import type { Genre } from "../../cadastro/types";
-import { fixedCards, cardsByGenre } from "../data/benefitCards";
+import type { BenefitCard } from "@feedback/types";
+import type { Genre } from "@cadastro/types";
+import { fixedCards, cardsByGenre } from "@feedback/data/benefitCards";
 
 interface BenefitsSectionProps {
   genres: Genre[];
@@ -33,7 +33,13 @@ const iconMap = {
   Gamepad2,
 };
 
-function BenefitCardComponent({ card, index }: { card: BenefitCard; index: number }) {
+function BenefitCardComponent({
+  card,
+  index,
+}: {
+  card: BenefitCard;
+  index: number;
+}) {
   const IconComponent = iconMap[card.icon as keyof typeof iconMap];
 
   return (
@@ -58,7 +64,9 @@ function BenefitCardComponent({ card, index }: { card: BenefitCard; index: numbe
       </H3>
 
       {/* Description */}
-      <Paragraph className="text-text-muted leading-relaxed">{card.description}</Paragraph>
+      <Paragraph className="text-text-muted leading-relaxed">
+        {card.description}
+      </Paragraph>
     </div>
   );
 }
@@ -84,13 +92,14 @@ export function BenefitsSection({ genres }: BenefitsSectionProps) {
               Benefícios Exclusivos
             </div>
 
-            <H2 className="mb-4">
-              O que te aguarda na comunidade
-            </H2>
+            <H2 className="mb-4">O que te aguarda na comunidade</H2>
 
-            <Paragraph variant="text1" className="text-text-muted max-w-2xl mx-auto">
-              Seja um dos pioneiros a construir a comunidade que vai preservar o passado,
-              viver o presente e criar o futuro dos videogames.
+            <Paragraph
+              variant="text1"
+              className="text-text-muted max-w-2xl mx-auto"
+            >
+              Seja um dos pioneiros a construir a comunidade que vai preservar o
+              passado, viver o presente e criar o futuro dos videogames.
             </Paragraph>
           </div>
 
