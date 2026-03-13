@@ -11,7 +11,15 @@ import {
   type CarouselApi,
 } from "@/components/ui/Carousel";
 import { H1, H2, Paragraph, Span } from "@/components/ui/Typography";
-import { Rocket, Gamepad2, Box, Users, Headphones, Pause, Play } from "lucide-react";
+import {
+  Rocket,
+  Gamepad2,
+  Box,
+  Users,
+  Headphones,
+  Pause,
+  Play,
+} from "lucide-react";
 import Autoplay from "embla-carousel-autoplay";
 import {
   TimelineItem,
@@ -22,7 +30,7 @@ export default function Historia() {
   const [isPaused, setIsPaused] = useState(false);
   const [api, setApi] = useState<CarouselApi>();
   const autoplayRef = useRef(
-    Autoplay({ delay: 3000, stopOnInteraction: false })
+    Autoplay({ delay: 3000, stopOnInteraction: false }),
   );
 
   const togglePause = useCallback(() => {
@@ -90,22 +98,8 @@ export default function Historia() {
   ];
 
   return (
-    <div className="min-h-screen bg-color-background text-neutral-950 dark:text-neutral-50">
+    <div className="min-h-screen">
       <section className="relative h-[calc(100vh-72px)] w-full overflow-hidden">
-        {/* Botão de pausa/play do carousel */}
-        <button
-          onClick={togglePause}
-          className="absolute top-4 right-4 z-20 p-3 bg-black/60 hover:bg-black/80 backdrop-blur-sm rounded-full text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-          aria-label={isPaused ? "Retomar apresentação de slides" : "Pausar apresentação de slides"}
-          aria-pressed={isPaused}
-        >
-          {isPaused ? (
-            <Play className="h-5 w-5" aria-hidden="true" />
-          ) : (
-            <Pause className="h-5 w-5" aria-hidden="true" />
-          )}
-        </button>
-
         <div className="absolute inset-0 w-full h-full [&>div]:h-full">
           <Carousel
             opts={{
@@ -150,16 +144,12 @@ export default function Historia() {
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 sm:px-8 py-16 pointer-events-none">
           <div className="max-w-4xl mx-auto text-center space-y-6 pointer-events-auto">
             <H1 className="text-white leading-tight">
-              A evolução dos games ao longo das{" "}
-              <Span className="relative inline-block">
-                décadas
-                <Span className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary-green-base" />
-              </Span>
+              A evolução dos games ao longo das décadas
             </H1>
 
             <Paragraph
               variant="text1"
-              className="text-neutral-200 max-w-2xl mx-auto leading-relaxed"
+              className="text-white max-w-2xl mx-auto leading-relaxed"
             >
               Dos primeiros fliperamas até os mundos imersivos da atualidade,
               descubra como os jogos moldaram gerações e continuam transformando
@@ -167,21 +157,14 @@ export default function Historia() {
             </Paragraph>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
-              <Button
-                asChild
-                className="bg-primary-green-base hover:bg-primary-green-lighter-1 text-neutral-950 font-medium px-8 py-6 text-base rounded-md w-full sm:w-auto"
-              >
+              <Button asChild size="large">
                 <Link href="/historia" className="flex items-center gap-2">
                   <Rocket className="h-5 w-5" />
                   Explore a História
                 </Link>
               </Button>
 
-              <Button
-                asChild
-                variant="secondary"
-                className="border-primary-green-base bg-transparent hover:bg-primary-green-base/10 text-white font-medium px-8 py-6 text-base rounded-md w-full sm:w-auto"
-              >
+              <Button asChild size="large">
                 <Link href="/plataforma" className="flex items-center gap-2">
                   <Gamepad2 className="h-5 w-5" />
                   Nossa Plataforma
@@ -201,14 +184,11 @@ export default function Historia() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
             <div className="lg:sticky lg:top-24 h-fit">
               <div className="space-y-6">
-                <H2 className="text-neutral-950 dark:text-white leading-tight">
+                <H2 className=" leading-tight">
                   O presente está repleto de jogos incríveis, mas nem sempre foi
                   assim.
                 </H2>
-                <Paragraph
-                  variant="text1"
-                  className="text-neutral-600 dark:text-neutral-300 leading-relaxed"
-                >
+                <Paragraph variant="text1" className="leading-relaxed">
                   Cada década trouxe inovações que revolucionaram a indústria e
                   definiram como jogamos hoje.
                 </Paragraph>
@@ -230,11 +210,9 @@ export default function Historia() {
 
       <section className="flex flex-col items-center justify-center min-h-[calc(100vh-72px-330px)] px-8 py-16 bg-color-background">
         <div className="max-w-4xl mx-auto text-center space-y-6">
-          <H1 className="text-neutral-950 dark:text-white">
-            Pronto para fazer parte desta história?
-          </H1>
+          <H1>Pronto para fazer parte desta história?</H1>
 
-          <div className="space-y-2 text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto">
+          <div className="space-y-2 max-w-2xl mx-auto">
             <Paragraph variant="text1">
               A história dos games continua sendo escrita a cada dia.
             </Paragraph>
@@ -245,18 +223,11 @@ export default function Historia() {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
-            <Button
-              asChild
-              className="bg-primary-green-base hover:bg-primary-green-lighter-1 text-neutral-950 font-medium px-8 py-6 text-base rounded-md w-full sm:w-auto"
-            >
+            <Button asChild>
               <Link href="/cadastro">Inscreva-se Agora</Link>
             </Button>
 
-            <Button
-              asChild
-              variant="secondary"
-              className="border-primary-green-base bg-transparent hover:bg-primary-green-base/10 text-neutral-950 dark:text-white font-medium px-8 py-6 text-base rounded-md w-full sm:w-auto"
-            >
+            <Button asChild variant="secondary">
               <Link href="/plataforma">Explorar Plataforma</Link>
             </Button>
           </div>

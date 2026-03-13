@@ -5,18 +5,16 @@ import { ArrowLeft } from "lucide-react";
 
 export default function CadastroPage() {
   return (
-    <div className="min-h-screen bg-background text-neutral-950 dark:text-neutral-50">
+    <div className="min-h-screen ">
       {/* Background Gradient */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
         <div
           className=" absolute -top-1/2 -right-1/4 w-[800px] h-[800px]
-          rounded-full bg-primary-green-base/10 dark:bg-primary-green-base/5
-            blur-3xl"
+          rounded-full blur-3xl"
         />
         <div
           className=" absolute -bottom-1/2 -left-1/4 w-[800px] h-[800px]
-            rounded-full bg-secondary-pink-base/10 dark:bg-secondary-pink-base/5
-            blur-3xl"
+            rounded-full blur-3xl"
         />
       </div>
 
@@ -27,8 +25,7 @@ export default function CadastroPage() {
           <Link
             href="/"
             className="inline-flex items-center gap-2 text-sm font-medium
-              text-text-muted hover:text-neutral-950 dark:hover:text-neutral-50
-              transition-colors duration-200"
+              text-text-muted transition-colors duration-200"
           >
             <ArrowLeft className="h-4 w-4" />
             Voltar para home
@@ -61,7 +58,7 @@ export default function CadastroPage() {
         <div
           className="
             max-w-3xl mx-auto p-6 md:p-10 rounded-2xl
-            bg-background-primary/50 dark:bg-background-primary/30 backdrop-blur-sm
+            backdrop-blur-sm
             border border-border shadow-x animate-fadeIn
           "
           style={{

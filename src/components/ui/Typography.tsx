@@ -126,6 +126,14 @@ const Display1 = createTypographyComponent<HTMLHeadingElement>(
   "display1",
   "h1",
 );
+const Display2 = createTypographyComponent<HTMLHeadingElement>(
+  "display2",
+  "h1",
+);
+const Display3 = createTypographyComponent<HTMLHeadingElement>(
+  "display3",
+  "h1",
+);
 const H1 = createTypographyComponent<HTMLHeadingElement>("heading1", "h1");
 const H2 = createTypographyComponent<HTMLHeadingElement>("heading2", "h2");
 const H3 = createTypographyComponent<HTMLHeadingElement>("heading3", "h3");
@@ -133,4 +141,4 @@ const H4 = createTypographyComponent<HTMLHeadingElement>("heading4", "h4");
 const Paragraph = createTypographyComponent<HTMLParagraphElement>("text2", "p");
 const Span = createTypographyComponent<HTMLSpanElement>("text2", "span");
 
-export { H1, H2, H3, H4, Paragraph, Span, Display1 };
+export { H1, H2, H3, H4, Paragraph, Span, Display1, Display2, Display3 };

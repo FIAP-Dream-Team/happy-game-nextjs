@@ -29,12 +29,12 @@ export function HeroSection({ fullName, platform }: HeroSectionProps) {
   const description = getPlatformDescription(platform);
 
   return (
-    <section className="relative flex items-center justify-center overflow-hidden py-20 md:py-32 bg-gradient-to-br from-primary-green-base/10 via-background to-secondary-pink-base/10 dark:from-primary-green-base/5 dark:via-background dark:to-secondary-pink-base/5">
+    <section className="relative flex items-center justify-center overflow-hidden py-20 md:py-32">
       {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-1/2 -right-1/4 w-[600px] h-[600px] rounded-full bg-primary-green-base/20 dark:bg-primary-green-base/10 blur-3xl animate-pulse" />
+        <div className="absolute -top-1/2 -right-1/4 w-[600px] h-[600px] rounded-full bg-primary-green-base/20 blur-3xl animate-pulse" />
         <div
-          className="absolute -bottom-1/2 -left-1/4 w-[600px] h-[600px] rounded-full bg-secondary-pink-base/20 dark:bg-secondary-pink-base/10 blur-3xl animate-pulse"
+          className="absolute -bottom-1/2 -left-1/4 w-[600px] h-[600px] rounded-full bg-secondary-pink-base/20 blur-3xl animate-pulse"
           style={{ animationDelay: "1s" }}
         />
       </div>
@@ -76,7 +76,7 @@ export function HeroSection({ fullName, platform }: HeroSectionProps) {
 
           {/* Success Badge */}
           <div
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary/10 dark:bg-primary/20 border border-primary/20 animate-fadeIn"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-primary/20 animate-fadeIn"
             style={{
               animationDelay: "0.4s",
               opacity: 0,

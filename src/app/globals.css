@@ -270,7 +270,7 @@
   --action-grey-hover: var(--color-neutral-800);
   --action-primary-default: var(--color-brand-purple-800);
   --action-primary-hover: var(--color-brand-purple-800);
-  --action-secondary-default: var(--color-brand-purple-800);
+  --action-secondary-default: var(--color-brand-purple-100);
   --action-secondary-hover: var(--color-brand-purple-800);
 
   /* Border colors */

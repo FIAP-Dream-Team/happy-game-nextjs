@@ -58,7 +58,7 @@ export function CTASection() {
 
           {/* Success Message */}
           <div
-            className=" mt-12 p-6 rounded-2xl border border-border bg-primary/5 dark:bg-primary/10 animate-fadeIn"
+            className=" mt-12 p-6 rounded-2xl border border-border animate-fadeIn"
             style={{
               animationDelay: "0.3s",
               opacity: 0,

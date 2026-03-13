@@ -18,7 +18,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-primary-green-darker-1 dark:bg-neutral-950 text-neutral-950 dark:text-neutral-50 py-8 px-4 h-[330px] flex flex-col justify-between">
+    <footer className="bg-bg-primary py-8 px-4 h-[330px] flex flex-col justify-between">
       <div className="flex flex-col items-center gap-6">
         <Logo variant="black" size="lg" className="dark:hidden" />
         <Logo variant="white" size="lg" className="hidden dark:block" />
@@ -27,13 +27,7 @@ export default function Footer() {
           {socialLinks.map((social) => {
             const Icon = social.icon;
             return (
-              <Button
-                key={social.label}
-                variant="secondary"
-                className="bg-neutral-100 dark:bg-neutral-800 border-0 hover:bg-neutral-200 dark:hover:bg-neutral-900"
-                aria-label={social.label}
-                asChild
-              >
+              <Button key={social.label} aria-label={social.label} asChild>
                 <Link href={social.href}>
                   <Icon />
                 </Link>
@@ -47,11 +41,7 @@ export default function Footer() {
 
       <nav className="flex justify-center items-center gap-6 flex-wrap">
         {legalLinks.map((link) => (
-          <Link
-            key={link.label}
-            href={link.href}
-            className="text-sm hover:text-primary-green-base dark:hover:text-primary-green-base transition-colors"
-          >
+          <Link key={link.label} href={link.href}>
             {link.label}
           </Link>
         ))}

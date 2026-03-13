@@ -67,10 +67,7 @@ export function PublicNavbar() {
                 <Icon name="Menu" size={20} />
               </Button>
             </SheetTrigger>
-            <SheetContent
-              side="right"
-              className="w-[300px] bg-bg-primary dark:bg-bg-primary"
-            >
+            <SheetContent side="right" className="w-[300px] bg-bg-primary">
               <nav className="flex flex-col items-center gap-6 mt-8">
                 {ROUTES.map((link) => {
                   const isActive = pathname === link.href;

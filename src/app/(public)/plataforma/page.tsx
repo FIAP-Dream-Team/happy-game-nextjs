@@ -101,14 +101,16 @@ export default async function Plataforma() {
   const commitments = await getCommitments();
 
   return (
-    <div className="min-h-screen bg-color-background text-neutral-950 dark:text-neutral-50 mx-auto space-y-12">
+    <div className="min-h-screen bg-color-background mx-auto space-y-12">
       <section className="bg-background-secondary">
         <div className="p-8 max-w-[1320px] mx-auto">
           <div className="text-center mb-8">
-            <H2 className="mb-4">
-              Recursos da Plataforma
-            </H2>
-            <Paragraph variant="text1" weight="bold" className="text-color-text-muted max-w-2xl mx-auto p-3">
+            <H2 className="mb-4">Recursos da Plataforma</H2>
+            <Paragraph
+              variant="text1"
+              weight="bold"
+              className="text-color-text-muted max-w-2xl mx-auto p-3"
+            >
               Descubra tudo que nossa plataforma oferece para gamers e
               desenvolvedores em uma experiência completa e inovadora.
             </Paragraph>
@@ -140,9 +142,7 @@ export default async function Plataforma() {
                       <TableCell>
                         <div className="flex items-center gap-2">
                           <Icon className="h-5 w-5 text-primary-green-base" />
-                          <Span weight="bold">
-                            {resource.category}
-                          </Span>
+                          <Span weight="bold">{resource.category}</Span>
                         </div>
                       </TableCell>
                       <TableCell className="font-medium">
@@ -163,9 +163,7 @@ export default async function Plataforma() {
       <section className="bg-background">
         <div className="p-8 max-w-[1320px] mx-auto">
           <div className="text-center mb-12">
-            <H1 className="mb-4 text-neutral-950 dark:text-neutral-50">
-              Nosso Compromisso com a Comunidade
-            </H1>
+            <H1 className="mb-4">Nosso Compromisso com a Comunidade</H1>
             <Paragraph className="text-color-text-muted max-w-2xl mx-auto">
               Construímos uma plataforma sustentável, transparente e inclusiva
               para todos os gamers.
@@ -206,9 +204,7 @@ export default async function Plataforma() {
       <section className="bg-background-primary">
         <div className="p-8 max-w-[1320px] mx-auto">
           <div className="text-center mb-8">
-            <H2 className="mb-4">
-              Conheça Nossa Equipe
-            </H2>
+            <H2 className="mb-4">Conheça Nossa Equipe</H2>
             <Paragraph className="text-color-text-muted max-w-2xl mx-auto">
               Conheça nossa equipe de desenvolvedores e designers que trabalham
               para criar a melhor plataforma para gamers.

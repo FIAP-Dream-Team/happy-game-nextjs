@@ -27,15 +27,16 @@ export function TeamMemberCard({ member }: TeamMemberCardProps) {
       </div>
 
       <div className="p-4 bg-background-secondary space-y-3 h-full  ">
-        <H3 className="text-neutral-950 dark:text-neutral-50 text-center">
-          {member.name}
-        </H3>
+        <H3 className="text-center">{member.name}</H3>
 
         <div className="flex justify-center">
           <Badge variant="default">{member.role}</Badge>
         </div>
 
-        <Paragraph variant="text3" className="text-color-text-muted text-center">
+        <Paragraph
+          variant="text3"
+          className="text-color-text-muted text-center"
+        >
           {member.bio}
         </Paragraph>
       </div>

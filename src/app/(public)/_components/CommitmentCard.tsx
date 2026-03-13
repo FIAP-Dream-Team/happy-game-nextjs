@@ -26,13 +26,11 @@ export function CommitmentCard({ commitment }: CommitmentCardProps) {
     <div className="rounded-lg bg-background-primary p-6 space-y-4 cursor-pointer hover:transition-transform hover:scale-[1.02] border border-border">
       <div className="flex justify-center">
         <div className="rounded-full bg-primary-green-base p-4">
-          <Icon className="h-8 w-8 text-neutral-950" />
+          <Icon className="h-8 w-8 " />
         </div>
       </div>
 
-      <H3 className="text-center text-neutral-950 dark:text-neutral-50">
-        {commitment.title}
-      </H3>
+      <H3 className="text-center">{commitment.title}</H3>
 
       <Paragraph variant="text3" className="text-color-text-muted text-center">
         {commitment.description}
@@ -42,9 +40,7 @@ export function CommitmentCard({ commitment }: CommitmentCardProps) {
         {commitment.points.map((point, index) => (
           <li key={index}>
             {index > 0 && <div className="border-t border-border mb-2 mt-2" />}
-            <Span variant="text3" className="text-neutral-950 dark:text-neutral-50">
-              {point}
-            </Span>
+            <Span variant="text3">{point}</Span>
           </li>
         ))}
       </ul>

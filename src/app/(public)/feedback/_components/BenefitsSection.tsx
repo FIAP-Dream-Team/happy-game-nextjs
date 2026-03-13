@@ -44,7 +44,7 @@ function BenefitCardComponent({
 
   return (
     <div
-      className="group p-6 rounded-2xl bg-background-primary/50 dark:bg-background-primary/30 border border-border backdrop-blur-sm hover:border-primary/50 hover:bg-background-primary dark:hover:bg-background-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1 animate-fadeIn"
+      className="group p-6 rounded-2xl border border-border backdrop-blur-sm transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1 animate-fadeIn"
       style={{
         animationDelay: `${index * 0.1}s`,
         opacity: 0,
@@ -52,16 +52,14 @@ function BenefitCardComponent({
       }}
     >
       {/* Icon */}
-      <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 dark:bg-primary/20 transition-all duration-300 group-hover:bg-primary group-hover:scale-110">
+      <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl transition-all duration-300 group-hover:bg-primary group-hover:scale-110">
         {IconComponent && (
           <IconComponent className="h-7 w-7 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
         )}
       </div>
 
       {/* Title */}
-      <H3 className="mb-3 text-neutral-950 dark:text-neutral-50">
-        {card.title}
-      </H3>
+      <H3 className="mb-3">{card.title}</H3>
 
       {/* Description */}
       <Paragraph className="text-text-muted leading-relaxed">
@@ -88,7 +86,7 @@ export function BenefitsSection({ genres }: BenefitsSectionProps) {
         <div className="mx-auto max-w-6xl">
           {/* Section Header */}
           <div className="mb-12 text-center">
-            <div className="mb-4 inline-block px-4 py-2 rounded-full bg-primary/10 dark:bg-primary/20 text-sm font-semibold uppercase tracking-wider text-primary">
+            <div className="mb-4 inline-block px-4 py-2 rounded-full text-sm font-semibold uppercase tracking-wider text-primary">
               Benefícios Exclusivos
             </div>
 

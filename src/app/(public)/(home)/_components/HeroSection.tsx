@@ -1,21 +1,23 @@
 import Link from "next/link";
 import { Rocket } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import { H1, Paragraph, Span } from "@/components/ui/Typography";
+import { Display3, H1, Paragraph } from "@/components/ui/Typography";
 import Image from "next/image";
 
 export function HeroSection() {
   return (
-    <section className="py-20 lg:py-32 dark:bg-blend-darken bg-background-secondary">
+    <section className="py-20 lg:py-32">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div className="order-2 lg:order-1 space-y-6 animate-fadeIn">
             <H1 className="leading-tight">
               Descubra a primeira comunidade feita para{" "}
-              <Span className="dark:text-primary-green-base">gamers</Span>
+              <Display3 className="text-text-highlight-purple whitespace-nowrap">
+                gamers
+              </Display3>
             </H1>
-            <Paragraph variant="text1" className="dark:text-neutral-400 text-neutral-600">
+            <Paragraph variant="text1">
               Conecte-se com outros jogadores, compartilhe suas conquistas,
               reviva os melhores momentos e descubra novas aventuras em uma
               comunidade feita para quem ama gamers.

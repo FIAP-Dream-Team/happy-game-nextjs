@@ -50,14 +50,12 @@ const communities = [
 
 export function CommunitiesSection() {
   return (
-    <section className="py-20 dark:bg-[linear-gradient(135deg,#1A1A1A_0%,#252525_50%,#1A1A1A_100%)] bg:background-tertiary">
+    <section className="py-20">
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16 max-w-3xl mx-auto">
-          <H2 className="mb-4">
-            Descubra sua comunidade gamer
-          </H2>
-          <Paragraph variant="text1" className="dark:text-neutral-300 text-neutral-600">
+          <H2 className="mb-4">Descubra sua comunidade gamer</H2>
+          <Paragraph variant="text1">
             Nostálgico dos clássicos? Competitivo nas ranked? Ou só curte jogar?
             Aqui todo gamer tem seu espaço para brilhar e se conectar.
           </Paragraph>
