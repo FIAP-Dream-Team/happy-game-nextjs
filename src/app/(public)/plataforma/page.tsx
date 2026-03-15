@@ -24,6 +24,8 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { H1, H2, H3, Paragraph, Span } from "@/components/ui/Typography";
+import { promises as fs } from "fs";
+import path from "path";
 
 interface PlatformResource {
   id: string;
@@ -35,16 +37,9 @@ interface PlatformResource {
 
 async function getTeamMembers(): Promise<TeamMember[]> {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-    const res = await fetch(`${baseUrl}/data/team-members.json`, {
-      next: { revalidate: 3600 },
-    });
-
-    if (!res.ok) {
-      throw new Error("Failed to fetch team members");
-    }
-
-    return res.json();
+    const filePath = path.join(process.cwd(), "public", "data", "team-members.json");
+    const fileContents = await fs.readFile(filePath, "utf-8");
+    return JSON.parse(fileContents);
   } catch (error) {
     console.error("Error fetching team members:", error);
     return [];
@@ -53,16 +48,9 @@ async function getTeamMembers(): Promise<TeamMember[]> {
 
 async function getPlatformResources(): Promise<PlatformResource[]> {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-    const res = await fetch(`${baseUrl}/data/platform-resources.json`, {
-      next: { revalidate: 3600 },
-    });
-
-    if (!res.ok) {
-      throw new Error("Failed to fetch platform resources");
-    }
-
-    return res.json();
+    const filePath = path.join(process.cwd(), "public", "data", "platform-resources.json");
+    const fileContents = await fs.readFile(filePath, "utf-8");
+    return JSON.parse(fileContents);
   } catch (error) {
     console.error("Error fetching platform resources:", error);
     return [];
@@ -71,16 +59,9 @@ async function getPlatformResources(): Promise<PlatformResource[]> {
 
 async function getCommitments(): Promise<Commitment[]> {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-    const res = await fetch(`${baseUrl}/data/commitments.json`, {
-      next: { revalidate: 3600 },
-    });
-
-    if (!res.ok) {
-      throw new Error("Failed to fetch commitments");
-    }
-
-    return res.json();
+    const filePath = path.join(process.cwd(), "public", "data", "commitments.json");
+    const fileContents = await fs.readFile(filePath, "utf-8");
+    return JSON.parse(fileContents);
   } catch (error) {
     console.error("Error fetching commitments:", error);
     return [];
