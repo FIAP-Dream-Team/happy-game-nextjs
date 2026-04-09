@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
 import { Span } from "@/components/ui/Typography";
@@ -85,8 +86,8 @@ export function FeedHeader() {
           );
         })}
       </div>
-      <Button variant="default" size="medium" type="button">
-        Criar post
+      <Button variant="default" size="medium" asChild>
+        <Link href="/feed/create">Criar post</Link>
       </Button>
     </header>
   );

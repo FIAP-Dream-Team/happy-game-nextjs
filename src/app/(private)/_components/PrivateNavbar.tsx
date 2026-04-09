@@ -30,7 +30,7 @@ export function PrivateNavbar({ session }: PrivateNavbarProps) {
   return (
     <Navbar
       logo={
-        <Link href="/">
+        <Link href="/feed">
           <Logo variant="black" className="dark:hidden" />
           <Logo variant="white" className="hidden dark:block" />
         </Link>
