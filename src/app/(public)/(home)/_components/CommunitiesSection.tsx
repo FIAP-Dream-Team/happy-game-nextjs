@@ -91,7 +91,7 @@ export function CommunitiesSection() {
                 <CardTitle className="text-xl">{community.title}</CardTitle>
               </CardHeader>
               <CardContent className="grow">
-                <CardDescription className="text-neutral-300">
+                <CardDescription className="text-neutral-600 dark:text-neutral-300">
                   {community.description}
                 </CardDescription>
               </CardContent>
