@@ -18,6 +18,7 @@ const ROUTES = [
     name: "História",
     icon: "GalleryHorizontalEnd" as const,
   },
+  { href: "/dashboard", name: "Dashboard", icon: "LayoutDashboard" as const }, 
   { href: "/plataforma", name: "Plataforma", icon: "PanelsTopLeft" as const },
 ];
 
