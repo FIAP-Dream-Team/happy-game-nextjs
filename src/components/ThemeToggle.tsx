@@ -67,7 +67,7 @@ export function ThemeToggle() {
       <Button
         variant="secondary"
         className="h-9 w-9 min-h-9 min-w-9 p-2 border border-border-primary"
-        aria-label="Toggle theme"
+        aria-label="Alternador de tema"
         disabled
       >
         <div className="size-5" />

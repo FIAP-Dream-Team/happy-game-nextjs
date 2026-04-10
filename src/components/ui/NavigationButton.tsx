@@ -29,7 +29,12 @@ const NavigationButton = React.forwardRef<
       size="large"
       asChild
     >
-      <Link ref={ref} href={href} {...props}>
+      <Link
+        ref={ref}
+        href={href}
+        aria-current={isActive ? "page" : undefined}
+        {...props}
+      >
         <Icon name={icon} />
         <Span variant="text4">{name}</Span>
       </Link>
