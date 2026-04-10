@@ -337,3 +337,35 @@ body {
 .animate-fadeIn {
   animation: fadeIn 0.8s ease-out;
 }
+
+/* Acessibilidade: respeita preferência do usuário por movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fadeIn {
+    animation: none;
+  }
+
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Skip navigation link – oculto até receber foco */
+.skip-nav-link {
+  position: absolute;
+  top: -9999px;
+  left: 0;
+  z-index: 9999;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-brand-purple-700);
+  color: var(--color-neutral-50);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0 0 0.5rem 0;
+}
+
+.skip-nav-link:focus {
+  top: 0;
+}

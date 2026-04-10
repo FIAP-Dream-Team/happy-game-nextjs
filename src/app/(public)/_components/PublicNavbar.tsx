@@ -18,8 +18,9 @@ const ROUTES = [
     name: "História",
     icon: "GalleryHorizontalEnd" as const,
   },
-  { href: "/dashboard", name: "Dashboard", icon: "LayoutDashboard" as const }, 
+  { href: "/dashboard", name: "Dashboard", icon: "LayoutDashboard" as const },
   { href: "/plataforma", name: "Plataforma", icon: "PanelsTopLeft" as const },
+  { href: "/sustentabilidade", name: "ESG", icon: "Leaf" as const },
 ];
 
 export function PublicNavbar() {
