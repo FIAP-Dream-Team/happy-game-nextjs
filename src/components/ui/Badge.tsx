@@ -8,24 +8,24 @@ const badgeVariants = cva(
   {
     variants: {
       variant: {
-        default:
-          "bg-action-primary-default text-action-white",
-        secondary:
-          "bg-surface-secondary text-action-white",
-        tertiary:
-          "bg-surface-tertiary text-action-white",
-        neutral:
-          "bg-surface-neutral text-text-primary",
+        default: "bg-action-primary-default text-action-white",
+        secondary: "bg-surface-secondary text-action-white",
+        tertiary: "bg-surface-tertiary text-action-white",
+        neutral: "bg-surface-neutral text-text-primary",
+        error: "bg-surface-error text-action-white",
+        warning: "bg-surface-warning text-action-white",
+        success: "bg-surface-success text-action-white",
       },
     },
     defaultVariants: {
       variant: "default",
     },
-  }
+  },
 );
 
 export interface BadgeProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends
+    React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof badgeVariants> {}
 
 function Badge({ className, variant, ...props }: BadgeProps) {
