@@ -7,10 +7,18 @@ export default function PublicLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className="mx-auto w-full flex-1 h-[calc(100vh-72px-330px)]">
-      <PublicNavbar />
-      {children}
-      <Footer />
-    </main>
+    <>
+      {/* Link de acessibilidade: permite pular a navegação e ir direto ao conteúdo */}
+      <a href="#main-content" className="skip-nav-link">
+        Pular para o conteúdo principal
+      </a>
+      <div className="mx-auto w-full flex-1 h-[calc(100vh-72px-330px)]">
+        <PublicNavbar />
+        <main id="main-content" tabIndex={-1}>
+          {children}
+        </main>
+        <Footer />
+      </div>
+    </>
   );
 }

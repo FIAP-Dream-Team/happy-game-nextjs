@@ -39,7 +39,7 @@ export default function Footer() {
 
       <div className="border-t border-color-border" />
 
-      <nav className="flex justify-center items-center gap-6 flex-wrap">
+      <nav aria-label="Links legais" className="flex justify-center items-center gap-6 flex-wrap">
         {legalLinks.map((link) => (
           <Link key={link.label} href={link.href}>
             {link.label}
