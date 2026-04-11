@@ -1,23 +1,55 @@
+import { notFound } from "next/navigation";
+
 import { MarkdownRenderer } from "@privateComponents/MarkdownRenderer";
+import { createSupabaseAdmin } from "@/lib/supabase/admin";
 
-export default function PostPage() {
-  const post = `
-  ## O Novo Capítulo do Horror
+const UUID_RE =
+  /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
-  A franquia Resident Evil continua expandindo seu universo sombrio, e Resident Evil Requiem surge como um dos títulos mais comentados entre os fãs de survival horror. Mantendo a essência clássica da série — tensão constante, escassez de recursos e narrativa envolvente — o jogo aposta em uma atmosfera ainda mais densa e psicológica.
+export default async function PostPage({
+  params,
+}: {
+  params: Promise<{ post: string }>;
+}) {
+  const { post: postId } = await params;
+  if (!UUID_RE.test(postId)) {
+    notFound();
+  }
 
-  ### Retorno às Raízes
+  let supabase;
+  try {
+    supabase = createSupabaseAdmin();
+  } catch {
+    notFound();
+  }
 
-  Inspirado no clima claustrofóbico de títulos como Resident Evil 7: Biohazard e Resident Evil 2, Requiem foca na exploração estratégica e no medo do desconhecido. Corredores escuros, trilhas sonoras minimalistas e encontros imprevisíveis reforçam a sensação de vulnerabilidade — algo que os fãs veteranos valorizam muito.
+  const { data: row, error } = await supabase
+    .from("posts")
+    .select("content, created_at, author_id")
+    .eq("id", postId)
+    .maybeSingle();
 
-  ### História e Ambientação
+  if (error || !row) {
+    notFound();
+  }
 
-  A narrativa gira em torno de um novo surto biológico, conectando eventos passados da franquia com novos personagens. Referências sutis a organizações como a Umbrella Corporation ajudam a amarrar o enredo ao universo já conhecido, enquanto expandem os mistérios sobre experimentos genéticos e conspirações corporativas.
-  `;
+  const { data: author } = await supabase
+    .from("profiles")
+    .select("full_name")
+    .eq("id", row.author_id)
+    .maybeSingle();
 
   return (
-    <article>
-      <MarkdownRenderer content={post} />
+    <article className="flex flex-col gap-4">
+      {author?.full_name ? (
+        <p className="text-sm text-text-tertiary">
+          Por {author.full_name}
+          {row.created_at
+            ? ` · ${new Date(row.created_at).toLocaleDateString("pt-BR")}`
+            : null}
+        </p>
+      ) : null}
+      <MarkdownRenderer content={row.content} />
     </article>
   );
 }
