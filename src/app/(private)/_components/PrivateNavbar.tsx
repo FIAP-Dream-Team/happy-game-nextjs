@@ -17,6 +17,7 @@ import { Icon } from "@/components/ui/Icon";
 const ROUTES = [
   { href: "/feed", icon: "Home" as const, name: "Feed" },
   { href: "/acervo", icon: "Gamepad2" as const, name: "Acervo" },
+  { href: "/admin/ueba", icon: "Shield" as const, name: "UEBA" },
 ];
 
 export interface PrivateNavbarProps {
