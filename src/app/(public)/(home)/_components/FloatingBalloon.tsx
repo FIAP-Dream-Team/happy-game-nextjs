@@ -20,13 +20,13 @@ export function FloatingBalloon() {
         ${isVisible ? "translate-y-0 opacity-100" : "translate-y-16 opacity-0"}
       `}
     >
-      <div className="relative bg-linear-to-br from-purple-600 via-pink-500 to-red-500 rounded-2xl shadow-2xl p-4 max-w-xs animate-float hover:scale-105 transition-transform duration-300 cursor-default">
+      <div className="relative bg-linear-to-br from-purple-600 via-pink-500 to-red-500 rounded-xl shadow-2xl p-3 max-w-[200px] animate-float hover:scale-105 transition-transform duration-300 cursor-default">
         {/* Brilho animado */}
         <div className="absolute inset-0 rounded-2xl bg-linear-to-r from-transparent via-white to-transparent opacity-20 animate-shimmer" />
 
         {/* Conteúdo */}
         <div className="relative z-10 text-center">
-          <Paragraph variant="text3" weight="bold" className="text-white leading-relaxed drop-shadow-lg">
+          <Paragraph variant="text4" weight="bold" className="text-white leading-relaxed drop-shadow-lg">
             Pressione{" "}
             <Span className="inline-block animate-bounce mx-1">↑</Span>
             <Span
@@ -60,7 +60,7 @@ export function FloatingBalloon() {
               →
             </Span>
             <br />
-            <Span variant="text1" className="text-yellow-300">🎮</Span> e descubra uma
+            <Span variant="text3" className="text-yellow-300">🎮</Span> e descubra uma
             surpresa!
           </Paragraph>
         </div>

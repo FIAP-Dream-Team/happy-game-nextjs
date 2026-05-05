@@ -31,7 +31,7 @@ export function PrivateNavbar({ session }: PrivateNavbarProps) {
   return (
     <Navbar
       logo={
-        <Link href="/feed">
+        <Link href="/feed" aria-label="Happy Game — ir para o feed">
           <Logo variant="black" className="dark:hidden" />
           <Logo variant="white" className="hidden dark:block" />
         </Link>

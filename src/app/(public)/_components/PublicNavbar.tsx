@@ -31,7 +31,7 @@ export function PublicNavbar() {
       className={cn("fixed top-0 left-0 right-0 z-50")}
       containerClassName="container mx-auto p-4 md:p-6"
       logo={
-        <Link href="/">
+        <Link href="/" aria-label="Happy Game — página inicial">
           <Logo variant="black" className="dark:hidden" />
           <Logo variant="white" className="hidden dark:block" />
         </Link>

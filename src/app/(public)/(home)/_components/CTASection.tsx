@@ -7,8 +7,8 @@ export function CTASection() {
     <section className="py-20 bg-bg-secondary">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center space-y-8">
-          <H2>Junte-se à nossa comunidade gamer</H2>
-          <Paragraph variant="text1">
+          <H2 className="text-balance">Junte-se à nossa comunidade gamer</H2>
+          <Paragraph variant="text1" className="text-balance">
             Seja um dos pioneiros a construir a comunidade que vai preservar o
             passado, viver o presente e criar o futuro dos videogames.
           </Paragraph>
