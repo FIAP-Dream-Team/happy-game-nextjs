@@ -11,13 +11,13 @@ export function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div className="order-2 lg:order-1 space-y-6 animate-fadeIn">
-            <H1 className="leading-tight">
+            <H1 className="leading-tight text-balance">
               Descubra a primeira comunidade feita para{" "}
               <Display3 className="text-text-highlight-purple whitespace-nowrap">
                 gamers
               </Display3>
             </H1>
-            <Paragraph variant="text1">
+            <Paragraph variant="text1" className="text-balance">
               Conecte-se com outros jogadores, compartilhe suas conquistas,
               reviva os melhores momentos e descubra novas aventuras em uma
               comunidade feita para quem ama gamers.

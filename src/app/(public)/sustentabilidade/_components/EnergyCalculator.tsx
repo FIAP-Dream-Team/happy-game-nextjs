@@ -112,7 +112,7 @@ export function EnergyCalculator() {
                 className={`flex flex-col items-center gap-2 p-4 rounded-xl border-2 transition-colors cursor-pointer text-center focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${
                   isSelected
                     ? "border-action-primary-default bg-action-primary-default/10 text-text-highlight-purple"
-                    : "border-border-primary hover:border-border-secondary text-text-tertiary"
+                    : "border-border-primary hover:border-border-secondary text-text-secondary"
                 }`}
               >
                 <DeviceIcon
@@ -122,7 +122,7 @@ export function EnergyCalculator() {
                 <span className="text-xs font-semibold leading-tight">
                   {d.label}
                 </span>
-                <span className="text-xs opacity-70">{d.wattsPerHour}W</span>
+                <span className="text-xs text-text-tertiary">{d.wattsPerHour}W</span>
               </button>
             );
           })}
@@ -148,7 +148,7 @@ export function EnergyCalculator() {
             max={16}
             value={hoursPerDay}
             onChange={(e) => setHoursPerDay(Number(e.target.value))}
-            className="w-full accent-action-primary-default cursor-pointer"
+            className="w-full accent-action-primary-default dark:accent-brand-purple-300 cursor-pointer"
             aria-valuetext={`${hoursPerDay} horas por dia`}
           />
           <div className="flex justify-between text-xs text-text-tertiary">
@@ -174,7 +174,7 @@ export function EnergyCalculator() {
             max={7}
             value={daysPerWeek}
             onChange={(e) => setDaysPerWeek(Number(e.target.value))}
-            className="w-full accent-action-primary-default cursor-pointer"
+            className="w-full accent-action-primary-default dark:accent-brand-purple-300 cursor-pointer"
             aria-valuetext={`${daysPerWeek} dias por semana`}
           />
           <div className="flex justify-between text-xs text-text-tertiary">
@@ -254,8 +254,8 @@ function ResultCard({
   color: "purple" | "green";
 }) {
   return (
-    <div className="rounded-xl border border-border-primary p-4 space-y-1">
-      <p className="text-xs text-text-tertiary font-medium">{label}</p>
+    <div className="rounded-xl border border-border-primary bg-surface-neutral p-4 space-y-1">
+      <p className="text-xs text-text-secondary font-medium">{label}</p>
       <p
         className={`text-lg font-bold font-heading ${
           color === "purple" ? "text-text-highlight-purple" : "text-surface-success"

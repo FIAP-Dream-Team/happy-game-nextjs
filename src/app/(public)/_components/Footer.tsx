@@ -18,12 +18,14 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-bg-primary py-8 px-4 h-[330px] flex flex-col justify-between">
+    <footer className="bg-bg-primary py-10 px-4 flex flex-col items-center gap-8">
       <div className="flex flex-col items-center gap-6">
-        <Logo variant="black" size="lg" className="dark:hidden" />
-        <Logo variant="white" size="lg" className="hidden dark:block" />
+        <Link href="/" aria-label="Happy Game — página inicial">
+          <Logo variant="black" size="lg" className="dark:hidden" />
+          <Logo variant="white" size="lg" className="hidden dark:block" />
+        </Link>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 flex-wrap justify-center">
           {socialLinks.map((social) => {
             const Icon = social.icon;
             return (
@@ -37,17 +39,21 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-color-border" />
+      <div className="w-full max-w-2xl border-t border-border-primary" />
 
       <nav aria-label="Links legais" className="flex justify-center items-center gap-6 flex-wrap">
         {legalLinks.map((link) => (
-          <Link key={link.label} href={link.href}>
+          <Link
+            key={link.label}
+            href={link.href}
+            className="text-text-tertiary hover:text-text-primary transition-colors duration-200 underline-offset-4 hover:underline"
+          >
             {link.label}
           </Link>
         ))}
       </nav>
 
-      <div className="text-center text-sm text-color-text-muted">
+      <div className="text-center text-sm text-text-tertiary">
         © 2025 Happy Game. Todos os direitos reservados.
       </div>
     </footer>

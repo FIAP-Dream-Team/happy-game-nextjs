@@ -293,10 +293,13 @@ function Step1PersonalInfo({ formData, errors, onChange }: StepProps) {
             placeholder="Digite seu nome completo"
             value={formData.fullName}
             onChange={(e) => onChange("fullName", e.target.value)}
+            aria-required
+            aria-invalid={!!errors.fullName}
+            aria-describedby={errors.fullName ? "fullName-error" : undefined}
             className={errors.fullName ? "border-destructive" : ""}
           />
           {errors.fullName && (
-            <Paragraph variant="text3" className="text-destructive">
+            <Paragraph id="fullName-error" role="alert" variant="text3" className="text-destructive">
               {errors.fullName}
             </Paragraph>
           )}
@@ -310,10 +313,13 @@ function Step1PersonalInfo({ formData, errors, onChange }: StepProps) {
             placeholder="Como você será chamado..."
             value={formData.nickname}
             onChange={(e) => onChange("nickname", e.target.value)}
+            aria-required
+            aria-invalid={!!errors.nickname}
+            aria-describedby={errors.nickname ? "nickname-error" : undefined}
             className={errors.nickname ? "border-destructive" : ""}
           />
           {errors.nickname && (
-            <Paragraph variant="text3" className="text-destructive">
+            <Paragraph id="nickname-error" role="alert" variant="text3" className="text-destructive">
               {errors.nickname}
             </Paragraph>
           )}
@@ -329,10 +335,13 @@ function Step1PersonalInfo({ formData, errors, onChange }: StepProps) {
             placeholder="seu@email.com"
             value={formData.email}
             onChange={(e) => onChange("email", e.target.value)}
+            aria-required
+            aria-invalid={!!errors.email}
+            aria-describedby={errors.email ? "email-error" : undefined}
             className={errors.email ? "border-destructive" : ""}
           />
           {errors.email && (
-            <Paragraph variant="text3" className="text-destructive">
+            <Paragraph id="email-error" role="alert" variant="text3" className="text-destructive">
               {errors.email}
             </Paragraph>
           )}
@@ -346,10 +355,12 @@ function Step1PersonalInfo({ formData, errors, onChange }: StepProps) {
             placeholder="(99) 99999-9999"
             value={formData.phone}
             onChange={(e) => onChange("phone", e.target.value)}
+            aria-invalid={!!errors.phone}
+            aria-describedby={errors.phone ? "phone-error" : undefined}
             className={errors.phone ? "border-destructive" : ""}
           />
           {errors.phone && (
-            <Paragraph variant="text3" className="text-destructive">
+            <Paragraph id="phone-error" role="alert" variant="text3" className="text-destructive">
               {errors.phone}
             </Paragraph>
           )}
@@ -370,14 +381,17 @@ function Step2Password({ formData, errors, onChange }: StepProps) {
           placeholder="Digite sua senha"
           value={formData.password}
           onChange={(e) => onChange("password", e.target.value)}
+          aria-required
+          aria-invalid={!!errors.password}
+          aria-describedby={errors.password ? "password-error" : "password-hint"}
           className={errors.password ? "border-destructive" : ""}
         />
         {errors.password && (
-          <Paragraph variant="text3" className="text-destructive">
+          <Paragraph id="password-error" role="alert" variant="text3" className="text-destructive">
             {errors.password}
           </Paragraph>
         )}
-        <Paragraph variant="text4" className="text-text-muted">
+        <Paragraph id="password-hint" variant="text4" className="text-text-muted">
           Mínimo 6 caracteres com pelo menos uma maiúscula, uma minúscula e um
           número
         </Paragraph>
@@ -391,10 +405,13 @@ function Step2Password({ formData, errors, onChange }: StepProps) {
           placeholder="Confirme sua senha"
           value={formData.confirmPassword}
           onChange={(e) => onChange("confirmPassword", e.target.value)}
+          aria-required
+          aria-invalid={!!errors.confirmPassword}
+          aria-describedby={errors.confirmPassword ? "confirmPassword-error" : undefined}
           className={errors.confirmPassword ? "border-destructive" : ""}
         />
         {errors.confirmPassword && (
-          <Paragraph variant="text3" className="text-destructive">
+          <Paragraph id="confirmPassword-error" role="alert" variant="text3" className="text-destructive">
             {errors.confirmPassword}
           </Paragraph>
         )}

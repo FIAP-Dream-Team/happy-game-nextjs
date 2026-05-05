@@ -12,9 +12,10 @@ export default function PublicLayout({
       <a href="#main-content" className="skip-nav-link">
         Pular para o conteúdo principal
       </a>
-      <div className="mx-auto w-full flex-1 h-[calc(100vh-72px-330px)]">
+      <div className="mx-auto w-full flex-1 flex flex-col">
         <PublicNavbar />
-        <main id="main-content" tabIndex={-1}>
+        {/* pt-14 md:pt-20 compensa a altura da navbar fixa (h-14 / h-20) */}
+        <main id="main-content" tabIndex={-1} className="pt-14 md:pt-20 flex-1">
           {children}
         </main>
         <Footer />

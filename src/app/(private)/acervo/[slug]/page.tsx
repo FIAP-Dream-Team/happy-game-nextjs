@@ -3,6 +3,9 @@
 import * as React from "react";
 import { useParams, useRouter } from "next/navigation";
 
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
+
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { FrameIcon } from "@/components/ui/FrameIcon";
@@ -122,32 +125,42 @@ export default function AcervoGameDetailPage() {
 
   return (
     <div className="flex flex-col gap-10">
-      <H1 className="text-text-primary">{game.name}</H1>
+      <div className="flex flex-col gap-4">
+        <Button variant="secondary" size="medium" asChild className="self-start">
+          <Link href="/acervo">
+            <ArrowLeft className="h-4 w-4" />
+            Voltar ao acervo
+          </Link>
+        </Button>
+        <H1 className="text-text-primary">{game.name}</H1>
+      </div>
 
+      <section aria-labelledby="game-stats-title">
+        <h2 id="game-stats-title" className="sr-only">Informações do jogo</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-surface-primary rounded-lg p-6 flex flex-col gap-4">
+        <div className="bg-surface-neutral border border-border-primary rounded-lg p-6 flex flex-col gap-4">
           <div className="flex items-center gap-3">
             <FrameIcon name="Calendar" variant="primary" size="md" />
             <Paragraph
               variant="text3"
               weight="bold"
-              className="text-text-surface-primary"
+              className="text-text-primary"
             >
               Data de lançamento
             </Paragraph>
           </div>
-          <Paragraph className="text-text-surface-primary text-[20px] md:text-[22px] font-bold">
+          <Paragraph className="text-text-primary text-[20px] md:text-[22px] font-bold">
             {releasedText}
           </Paragraph>
         </div>
 
-        <div className="bg-surface-primary rounded-lg p-6 flex flex-col gap-4">
+        <div className="bg-surface-neutral border border-border-primary rounded-lg p-6 flex flex-col gap-4">
           <div className="flex items-center gap-3">
             <FrameIcon name="Trophy" variant="primary" size="md" />
             <Paragraph
               variant="text3"
               weight="bold"
-              className="text-text-surface-primary"
+              className="text-text-primary"
             >
               Nota no Metacritic
             </Paragraph>
@@ -157,29 +170,29 @@ export default function AcervoGameDetailPage() {
           </div>
         </div>
 
-        <div className="bg-surface-primary rounded-lg p-6 flex flex-col gap-4">
+        <div className="bg-surface-neutral border border-border-primary rounded-lg p-6 flex flex-col gap-4">
           <div className="flex items-center gap-3">
             <FrameIcon name="Target" variant="primary" size="md" />
             <Paragraph
               variant="text3"
               weight="bold"
-              className="text-text-surface-primary"
+              className="text-text-primary"
             >
               Duração
             </Paragraph>
           </div>
-          <Paragraph className="text-text-surface-primary text-[20px] md:text-[22px] font-bold">
+          <Paragraph className="text-text-primary text-[20px] md:text-[22px] font-bold">
             {durationText}
           </Paragraph>
         </div>
 
-        <div className="bg-surface-primary rounded-lg p-6 flex flex-col gap-4">
+        <div className="bg-surface-neutral border border-border-primary rounded-lg p-6 flex flex-col gap-4">
           <div className="flex items-center gap-3">
             <FrameIcon name="Gamepad2" variant="primary" size="md" />
             <Paragraph
               variant="text3"
               weight="bold"
-              className="text-text-surface-primary"
+              className="text-text-primary"
             >
               Plataformas
             </Paragraph>
@@ -197,9 +210,22 @@ export default function AcervoGameDetailPage() {
           </div>
         </div>
       </div>
+      </section>
 
       <div className="grid lg:grid-cols-2 gap-12 items-start">
-        <div className="flex flex-col gap-8">
+        {/* Imagem aparece primeiro no mobile, depois no desktop */}
+        <div className="order-1 lg:order-2 w-full">
+          <img
+            src={game.background_image ?? "/img/sonic.png"}
+            alt={`Imagem de capa de ${game.name}`}
+            loading="lazy"
+            width={800}
+            height={420}
+            className="w-full h-[260px] md:h-[420px] object-cover rounded-lg"
+          />
+        </div>
+
+        <div className="order-2 lg:order-1 flex flex-col gap-8">
           <div>
             <H3 className="text-text-primary">Gameplay e inovações</H3>
             <Paragraph className="text-text-tertiary mt-2">
@@ -214,24 +240,18 @@ export default function AcervoGameDetailPage() {
             </Paragraph>
           </div>
         </div>
-
-        <div className="w-full">
-          <img
-            src={game.background_image}
-            alt={game.name}
-            className="w-full h-[320px] md:h-[420px] object-cover rounded-lg"
-          />
-        </div>
       </div>
 
-      <section className="flex justify-center">
-        <div className="w-full max-w-[720px] bg-surface-primary rounded-lg px-8 py-10 flex flex-col items-center gap-6">
-          <Paragraph className="text-text-surface-primary text-center text-[18px] md:text-[20px] font-bold">
-            Gostou desse post? Você também pode fazer o seu e interagir com
-            outros jogadores!
+      <section aria-labelledby="cta-community-title" className="flex justify-center">
+        <div className="w-full max-w-[720px] bg-surface-neutral border border-border-primary rounded-lg px-8 py-10 flex flex-col items-center gap-6">
+          <Paragraph
+            id="cta-community-title"
+            className="text-text-primary text-center text-[18px] md:text-[20px] font-bold"
+          >
+            Gostou desse jogo? Compartilhe sua opinião com a comunidade!
           </Paragraph>
-          <Button variant="default" size="medium" type="button">
-            Interagir com a comunidade
+          <Button variant="default" size="medium" asChild>
+            <Link href="/feed/create">Ir para o feed</Link>
           </Button>
         </div>
       </section>
