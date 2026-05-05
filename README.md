@@ -1,510 +1,405 @@
-# 🎮 Happy Game - Plataforma Next.js
+# Happy Game - Plataforma Next.js
 
-## 📋 Sobre o Projeto
+## Sobre o Projeto
 
-O **Happy Game** é uma plataforma web moderna desenvolvida com Next.js para conectar gamers e entusiastas de videogames. O projeto apresenta uma comunidade virtual onde jogadores podem se inscrever, explorar a história dos jogos, conhecer os recursos da plataforma e interagir com outros membros da comunidade.
+O **Happy Game** é uma plataforma web moderna desenvolvida com Next.js para conectar gamers e entusiastas de videogames. A plataforma oferece comunidade virtual, acervo de jogos, feed de posts, painel administrativo com análise comportamental (UEBA) e conteúdo sobre sustentabilidade no gaming.
 
-## 🎯 Propósito
+Projeto desenvolvido como parte da Graduação da FIAP em Sistemas de Informação.
 
-O site foi criado para:
+---
 
-- **Conectar gamers**: Criar uma comunidade vibrante de jogadores
-- **Educar sobre história**: Apresentar a evolução dos videogames ao longo das décadas
-- **Apresentar recursos**: Mostrar funcionalidades da plataforma para desenvolvedores e usuários
-- **Captar leads**: Sistema de cadastro para lista de espera da comunidade
-- **Experiência personalizada**: Sistema de autenticação com NextAuth para perfis personalizados
+## Funcionalidades
 
-## 🚀 Funcionalidades
+### Publicas (sem autenticacao)
 
-### 🏠 Página Inicial (Home)
+- **Home (`/`)** — Hero, comunidades, estatísticas, easter egg Konami Code, balão flutuante e modal de conquistas
+- **Historia (`/historia`)** — Timeline interativa da evolução dos videogames (1970–presente)
+- **Plataforma (`/plataforma`)** — Tabela de recursos, equipe, valores e práticas da plataforma
+- **Cadastro (`/cadastro`)** — Formulário com validação customizada (nome, nickname, email, telefone, plataforma favorita, gêneros)
+- **Feedback (`/feedback`)** — Confirmação personalizada após cadastro
+- **Login (`/login`)** — Autenticação via email/senha ou Google OAuth
+- **Dashboard (`/dashboard`)** — Projeção e visualização de dados públicos
+- **Sustentabilidade (`/sustentabilidade`)** — Conteúdo ESG, impacto digital do gaming e calculadora de pegada de carbono
 
-- **Hero Section**: Apresentação principal com call-to-action
-- **Seção de Comunidades**: Cards interativos mostrando benefícios da plataforma
-- **Estatísticas**: Dados impactantes sobre a indústria de jogos
-- **Game God Image**: Seção visual destacando a cultura gamer
-- **Call-to-Action**: Convite para inscrição na comunidade
-- **Easter Egg Konami Code**: Funcionalidade secreta ativada pelo código Konami
-- **Floating Balloon**: Elemento visual interativo flutuante
-- **Achievement Modal**: Sistema de conquistas e badges
+### Privadas (requerem autenticacao)
 
-### 📚 História dos Jogos (/historia)
+- **Feed (`/feed`)** — Lista de posts da comunidade carregados do Supabase
+- **Post (`/feed/[post]`)** — Visualização individual de post com renderização Markdown
+- **Criar Post (`/feed/create`)** — Editor para publicar novo post
+- **Acervo (`/acervo`)** — Catálogo de jogos via RAWG API (fallback para mock local)
+- **Detalhe do Jogo (`/acervo/[slug]`)** — Informações detalhadas do jogo (Metacritic, plataformas, descrição)
+- **Perfil (`/perfil`)** — Dados do usuário autenticado
+- **Admin UEBA (`/admin/ueba`)** — Dashboard de análise comportamental com scores de anomalia
 
-- **Timeline Interativa**: Evolução dos videogames de 1970 até o presente
-- **TimelineItem Components**: Componentes reutilizáveis para cada período histórico
-- **Períodos Históricos**:
-  - 1970-1980: A Era dos Arcades
-  - 1980-1990: A Revolução dos Consoles
-  - 1990-2000: A Transição para o 3D
-  - 2000-2010: A Era Online
-  - 2010-Presente: Jogos como Cultura
+---
 
-### 🛠️ Plataforma (/plataforma)
-
-- **Recursos Dinâmicos**: Carregados de JSON com Server Components
-- **Tabela de Recursos**: Exibição organizada de funcionalidades
-- **Equipe**: Apresentação dos desenvolvedores do projeto com fotos e links
-- **Compromisso**: Cards exibindo valores e missão da comunidade
-- **Sustentabilidade Digital**: Seção destacando práticas sustentáveis
-- **Recursos Disponíveis**:
-  - Catálogo de Jogos
-  - Análise de Vendas
-  - Sistema de Posts
-  - Interação entre Usuários
-  - Sistema de Conquistas
-  - Diversidade & Inclusão
-
-### 📝 Formulário de Cadastro (/cadastro)
-
-- **Cadastro Completo**: Nome, nickname, email, telefone
-- **Preferências**: Plataforma favorita e gêneros de jogos
-- **Validação Customizada**: Hook useFormValidation para validação
-- **TypeScript Types**: Tipagem forte para dados do formulário
-- **Componente SignupForm**: Formulário modular e reutilizável
-- **Integração com NextAuth**: Preparado para autenticação
-
-### 🔐 Login (/login)
-
-- **Autenticação com NextAuth**: Sistema robusto de autenticação
-- **Credentials Provider**: Login com email e senha
-- **Session Management**: Gerenciamento de sessões com SessionProvider
-- **Protected Routes**: Middleware para rotas privadas
-- **Remember Me**: Persistência de sessão
-
-### ✅ Página de Feedback (/feedback)
-
-- **Confirmação Personalizada**: Usa dados do cadastro
-- **Hero Section Customizada**: Saudação personalizada ao usuário
-- **Benefits Section**: Cards dinâmicos baseados em preferências
-- **CTA Section**: Próximos passos para o usuário
-- **Tipos TypeScript**: Definições específicas para feedback
-
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias
 
 ### Core
 
-- **Next.js 16.0.4**: Framework React com App Router
-- **React 19.2.0**: Biblioteca JavaScript para interfaces (versão mais recente)
-- **TypeScript 5.x**: Superset do JavaScript com tipagem estática
-- **NextAuth 4.24.13**: Solução completa de autenticação
+- **Next.js 16.0.10** — Framework React com App Router
+- **React 19.2.0** — Biblioteca de interface
+- **TypeScript 5.x** — Tipagem estática
+- **NextAuth 4.24.13** — Autenticação (Credentials + Google OAuth)
+
+### Backend / Dados
+
+- **Supabase (`@supabase/supabase-js`)** — Banco de dados PostgreSQL para posts, profiles e eventos UEBA
+- **RAWG API** — API externa para catálogo de jogos (com mock de fallback)
 
 ### Styling
 
-- **Tailwind CSS 4.x**: Framework CSS utility-first (versão mais recente)
-- **tw-animate-css**: Animações CSS para Tailwind
-- **@tailwindcss/postcss**: Plugin PostCSS para Tailwind
-- **class-variance-authority**: Gerenciamento de variantes de componentes
-- **clsx + tailwind-merge**: Utilitários para classes CSS
+- **Tailwind CSS 4.x** — Utility-first
+- **tw-animate-css** — Animações
+- **class-variance-authority / clsx / tailwind-merge** — Utilitários de classe
 
-### UI Components Shad cn (Radix UI)
+### UI (Radix UI / shadcn-style)
 
-- **@radix-ui/react-checkbox**: Componente de checkbox acessível
-- **@radix-ui/react-dialog**: Modal/Dialog acessível
-- **@radix-ui/react-label**: Labels para formulários
-- **@radix-ui/react-select**: Select dropdown acessível
-- **@radix-ui/react-slot**: Composição de componentes
+- `@radix-ui/react-checkbox`, `react-dialog`, `react-label`, `react-select`, `react-slot`
+- **lucide-react** — Ícones
+- **embla-carousel-react** — Carrossel com autoplay
 
-### Carousel & Icons
+### Conteudo
 
-- **embla-carousel-react**: Carrossel performático
-- **embla-carousel-autoplay**: Plugin de autoplay para carrossel
-- **lucide-react**: Ícones modernos e customizáveis
+- **react-markdown** + **remark-gfm** + **remark-breaks** — Renderização de Markdown nos posts
+- **chart.js** — Gráficos no dashboard
 
-### Build & Development
+### Testes / Dev
 
-- **babel-plugin-react-compiler**: Compilador React experimental
-- **ESLint**: Linter para qualidade de código
-- **PostCSS**: Processamento de CSS
+- **Storybook 10** — Documentação e desenvolvimento de componentes
+- **Vitest 4 + Playwright** — Testes unitários e de componente
+- **ESLint** — Linter
 
-## 🎨 Sistema de Design
+---
+
+## Sistema de Design
 
 ### Paleta de Cores
 
-O projeto utiliza um sistema de tokens de cor estruturado com suporte a modo claro e escuro:
-
-#### Cores Neutras
-
 ```css
+/* Neutros */
 --neutral-black: #0D0D0D
 --neutral-dark-grey: #1A1A1A
 --neutral-medium-grey: #2D2D2D
 --neutral-light-grey: #B0B0B0
 --neutral-white: #FFFFFF
-```
 
-#### Cores de Destaque
-
-```css
---primary-green-base: #00FF88 (neon-green)
+/* Destaque */
+--primary-green-base: #00FF88
 --primary-green-darker: #00CC6D
---primary-pink-accent: #FF2E63 (hot-pink)
-```
-
-#### Gradientes
-
-```css
---gradient-sustainability: Linear gradient com tons verdes;
+--primary-pink-accent: #FF2E63
 ```
 
 ### Tokens Tailwind
 
-As cores estão integradas ao Tailwind como:
+- `bg-background`, `bg-background-secondary`, `bg-surface-primary`, `bg-surface-neutral`
+- `text-text-primary`, `text-text-secondary`, `text-text-tertiary`, `text-text-highlight-purple`
+- `border-border-primary`
+- Suporte a variantes `dark:`
 
-- `bg-background`, `bg-background-primary`, `bg-background-secondary`
-- `text-neutral-950`, `text-neutral-50`
-- `text-primary-green-base`, `text-primary-pink-accent`
-- Suporte a `dark:` variants para modo escuro
+---
 
-### Tipografia
-
-- **Font Heading**: Fonte customizada para títulos
-- **System Fonts**: Fontes do sistema para texto geral
-
-## 📁 Estrutura do Projeto (Next.js App Router)
+## Estrutura do Projeto
 
 ```
 happy-game-nextjs/
-├── public/                          # Arquivos estáticos
-│   ├── data/                        # Dados JSON
-│   │   ├── commitments.json         # Compromissos da plataforma
-│   │   ├── platform-resources.json  # Recursos disponíveis
-│   │   └── team-members.json        # Membros da equipe
-│   └── img/                         # Imagens e recursos visuais
-│       ├── logo/                    # Variações do logo (SVG)
-│       │   ├── logo-black.svg
-│       │   └── logo-white.svg
-│       ├── profile/                 # Fotos da equipe (5 membros)
-│       │   ├── joao-andrade-profile.jpeg
-│       │   ├── john-silverio-profile.jpeg
-│       │   ├── larissa-mendes-profile.jpeg
-│       │   ├── lyniker-oliveira-profile.jpeg
-│       │   └── vinicius-cardoso-profile.jpeg
-│       ├── assassins.png
-│       ├── favicon.png
-│       ├── favicon.svg
-│       ├── fight.png
-│       ├── game-god.png
-│       ├── game-together.png
-│       ├── mario-sonic.png
-│       ├── povos-originarios.png
-│       ├── setup.png
-│       └── story-games-header.png
+├── public/
+│   ├── data/
+│   │   ├── commitments.json
+│   │   ├── platform-resources.json
+│   │   └── team-members.json
+│   └── img/                        # Imagens, logos e fotos da equipe
 ├── src/
-│   ├── app/                         # App Router (Next.js 13+)
-│   │   ├── (public)/                # Grupo de rotas públicas
-│   │   │   ├── (home)/             # Rota raiz (/)
-│   │   │   │   ├── _components/    # Componentes da home
-│   │   │   │   │   ├── AchievementModal.tsx
-│   │   │   │   │   ├── CommunitiesSection.tsx
-│   │   │   │   │   ├── CTASection.tsx
-│   │   │   │   │   ├── FloatingBalloon.tsx
-│   │   │   │   │   ├── GameGodImage.tsx
-│   │   │   │   │   ├── HeroSection.tsx
-│   │   │   │   │   ├── KonamiCodeEasterEgg.tsx
-│   │   │   │   │   ├── StatsSection.tsx
-│   │   │   │   │   └── hooks/
-│   │   │   │   │       └── useKonamiCode.ts
-│   │   │   │   └── page.tsx        # Página inicial
-│   │   │   ├── _components/        # Componentes compartilhados (públicos)
-│   │   │   │   ├── Buttons.tsx
-│   │   │   │   ├── CommitmentCard.tsx
-│   │   │   │   ├── Footer.tsx
-│   │   │   │   ├── Header.tsx
-│   │   │   │   ├── TeamMemberCard.tsx
-│   │   │   │   └── TimelineItem.tsx
-│   │   │   ├── cadastro/           # Rota /cadastro
-│   │   │   │   ├── _components/
-│   │   │   │   │   └── SignupForm.tsx
-│   │   │   │   ├── hooks/
-│   │   │   │   │   └── useFormValidation.ts
-│   │   │   │   ├── types.ts
-│   │   │   │   └── page.tsx
-│   │   │   ├── feedback/           # Rota /feedback
-│   │   │   │   ├── _components/
-│   │   │   │   │   ├── BenefitsSection.tsx
-│   │   │   │   │   ├── CTASection.tsx
-│   │   │   │   │   └── HeroSection.tsx
-│   │   │   │   ├── data/
-│   │   │   │   │   └── benefitCards.ts
-│   │   │   │   ├── types.ts
-│   │   │   │   └── page.tsx
-│   │   │   ├── historia/           # Rota /historia
-│   │   │   │   └── page.tsx
-│   │   │   ├── login/              # Rota /login
-│   │   │   │   └── page.tsx
-│   │   │   ├── plataforma/         # Rota /plataforma
-│   │   │   │   └── page.tsx
-│   │   │   └── layout.tsx          # Layout público
-│   │   ├── (private)/              # Grupo de rotas privadas
-│   │   │   ├── perfil/             # Rota /perfil (protegida)
-│   │   │   │   ├── _components/
-│   │   │   │   │   └── LogoutButton.tsx
-│   │   │   │   └── page.tsx
-│   │   │   └── layout.tsx          # Layout privado
-│   │   ├── api/                    # API Routes
-│   │   │   └── auth/
-│   │   │       └── [...nextauth]/
-│   │   │           └── route.ts    # NextAuth API handler
-│   │   └── layout.tsx              # Root layout
-│   ├── components/                 # Componentes globais
-│   │   ├── ui/                     # Componentes UI (shadcn/ui style)
-│   │   │   ├── Badge.tsx
-│   │   │   ├── Button.tsx
-│   │   │   ├── Card.tsx
-│   │   │   ├── Carousel.tsx
-│   │   │   ├── Checkbox.tsx
-│   │   │   ├── Input.tsx
-│   │   │   ├── Label.tsx
-│   │   │   ├── Select.tsx
-│   │   │   ├── Sheet.tsx
-│   │   │   ├── Table.tsx
-│   │   │   └── Textarea.tsx
-│   │   ├── Logo.tsx                # Componente do logo
-│   │   └── ThemeToggle.tsx         # Alternador de tema claro/escuro
-│   ├── lib/                        # Utilitários e configurações
+│   ├── app/
+│   │   ├── (public)/               # Rotas públicas
+│   │   │   ├── (home)/             # /
+│   │   │   ├── cadastro/           # /cadastro
+│   │   │   ├── feedback/           # /feedback
+│   │   │   ├── historia/           # /historia
+│   │   │   ├── login/              # /login
+│   │   │   ├── plataforma/         # /plataforma
+│   │   │   ├── dashboard/          # /dashboard
+│   │   │   └── sustentabilidade/   # /sustentabilidade
+│   │   ├── (private)/              # Rotas privadas (requerem login)
+│   │   │   ├── feed/               # /feed, /feed/[post], /feed/create
+│   │   │   ├── acervo/             # /acervo, /acervo/[slug]
+│   │   │   ├── perfil/             # /perfil
+│   │   │   └── admin/ueba/         # /admin/ueba
+│   │   ├── api/
+│   │   │   ├── auth/[...nextauth]/ # NextAuth endpoints
+│   │   │   └── admin/ueba/events/  # GET/POST/PATCH/DELETE eventos UEBA
+│   │   └── layout.tsx
+│   ├── components/
+│   │   ├── ui/                     # Badge, Button, Card, Carousel, Avatar,
+│   │   │   │                       # Checkbox, FrameIcon, Icon, Input, Label,
+│   │   │   │                       # MetacriticScore, NavigationButton, Select,
+│   │   │   │                       # Sheet, Table, Textarea, Typography
+│   │   ├── Logo.tsx
+│   │   ├── Navbar.tsx
+│   │   └── ThemeToggle.tsx
+│   ├── lib/
 │   │   ├── auth.ts                 # Configuração NextAuth
-│   │   └── utils.ts                # Função cn() para classes
-│   ├── providers/                  # React Context Providers
-│   │   └── SessionProvider.tsx     # Provider de sessão NextAuth
-│   ├── types/                      # Definições TypeScript globais
-│   │   └── next-auth.d.ts          # Extensão de tipos NextAuth
-│   └── middleware.ts               # Middleware (proteção de rotas)
-├── .gitignore                      # Arquivos ignorados pelo Git
+│   │   ├── posts.ts                # Listagem de posts (Supabase)
+│   │   ├── rawg.ts                 # Cliente RAWG API
+│   │   ├── utils.ts                # cn()
+│   │   ├── supabase/
+│   │   │   ├── admin.ts            # Cliente Supabase com service_role
+│   │   │   └── profiles.ts         # Operações na tabela profiles
+│   │   └── ueba/
+│   │       ├── index.ts            # Exportações do módulo
+│   │       ├── db.ts               # CRUD na tabela ueba_events
+│   │       ├── types.ts            # UebaEventType, RiskBand, etc.
+│   │       ├── simulateIsolationScore.ts  # Algoritmo estilo Isolation Forest
+│   │       └── authAdmin.ts        # Validação do header x-ueba-admin-secret
+│   ├── providers/
+│   │   └── SessionProvider.tsx
+│   ├── types/
+│   │   └── next-auth.d.ts
+│   └── middleware.ts               # Proteção de rotas privadas
+├── .storybook/                     # Configuração do Storybook
 ├── components.json                 # Configuração shadcn/ui
-├── eslint.config.mjs              # Configuração ESLint
-├── next.config.ts                 # Configuração Next.js
-├── package.json                   # Dependências do projeto
-├── postcss.config.mjs             # Configuração PostCSS
-├── tsconfig.json                  # Configuração TypeScript
-└── README.md                      # Este arquivo
+├── next.config.ts
+├── package.json
+└── tsconfig.json
 ```
 
-### 📂 Explicação da Estrutura
+---
 
-#### App Router (`/src/app`)
+## Rotas da Aplicacao
 
-O projeto utiliza o App Router do Next.js 13+, com arquitetura baseada em grupos de rotas:
+### Publicas
 
-- **(public)**: Rotas acessíveis sem autenticação
-- **(private)**: Rotas protegidas que requerem login
-- **\_components**: Componentes específicos do segmento (convenção Next.js)
-- **layout.tsx**: Layouts aninhados para cada grupo
-- **page.tsx**: Páginas das rotas
+| Rota | Descricao |
+|---|---|
+| `/` | Pagina inicial |
+| `/historia` | Timeline da historia dos videogames |
+| `/plataforma` | Recursos, equipe e valores |
+| `/cadastro` | Formulario de cadastro |
+| `/login` | Login (email/senha ou Google) |
+| `/feedback` | Confirmacao pos-cadastro |
+| `/dashboard` | Dashboard publico de projecoes |
+| `/sustentabilidade` | ESG e calculadora de carbono |
 
-#### Componentes (`/src/components`)
+### Privadas
 
-- **ui/**: Componentes reutilizáveis de interface (inspirados em shadcn/ui)
-- Componentes globais como Logo e ThemeToggle
+| Rota | Descricao |
+|---|---|
+| `/feed` | Feed de posts da comunidade |
+| `/feed/[post]` | Visualizacao de post individual |
+| `/feed/create` | Criacao de novo post |
+| `/acervo` | Catalogo de jogos (RAWG API) |
+| `/acervo/[slug]` | Detalhes de um jogo |
+| `/perfil` | Perfil do usuario autenticado |
+| `/admin/ueba` | Dashboard UEBA (análise comportamental) |
 
-#### API Routes (`/src/app/api`)
+### API
 
-- **auth/[...nextauth]**: Endpoint de autenticação NextAuth
+| Endpoint | Metodo | Descricao |
+|---|---|---|
+| `/api/auth/[...nextauth]` | GET/POST | Endpoints NextAuth |
+| `/api/admin/ueba/events` | GET | Lista eventos UEBA |
+| `/api/admin/ueba/events` | POST | Cria evento UEBA |
+| `/api/admin/ueba/events/[id]` | PATCH/DELETE | Edita ou remove evento |
 
-#### Dados Estáticos (`/public/data`)
+---
 
-- Arquivos JSON para recursos, equipe e compromissos
-- Carregados via Server Components ou fetch API
+## Sistema UEBA
 
-## 🚀 Como Executar
+O módulo **UEBA (User and Entity Behavior Analytics)** monitora e pontua comportamentos anômalos dos usuários.
 
-### Pré-requisitos
+### Funcionamento
 
-- Node.js 18+ instalado
+1. Eventos são registrados na tabela `ueba_events` no Supabase, vinculados a `profiles`.
+2. Ao inserir um evento, o servidor recalcula o **anomaly score** com uma simulação estilo **Isolation Forest**, considerando:
+   - País/localização incomum (`isUsualCountry`)
+   - Dispositivo incomum (`isUsualDevice`)
+   - Horário atípico (`isUsualHour`)
+   - Volume de ações na última hora (`actionsLastHour`)
+   - Frequência de posts (`postsInLastHour`)
+3. O score determina a **band de risco**: `low`, `medium` ou `high`.
+4. O dashboard `/admin/ueba` exibe todos os eventos com score, risco e motivos.
+
+### Tipos de evento
+
+- `login` — Acesso à plataforma
+- `post_create` — Criação de post
+- `post_view` — Visualização de post
+
+### Autenticacao da API UEBA
+
+Todas as rotas `/api/admin/ueba/*` exigem o header:
+
+```
+x-ueba-admin-secret: <UEBA_ADMIN_SECRET>
+```
+
+---
+
+## Supabase — Tabelas
+
+| Tabela | Descricao |
+|---|---|
+| `profiles` | Dados do usuario (full_name, avatar_url, email) |
+| `posts` | Posts do feed (content, author_id, created_at) |
+| `ueba_events` | Eventos comportamentais com scores de anomalia |
+
+---
+
+## Como Executar
+
+### Pre-requisitos
+
+- Node.js 18+
 - npm, yarn, pnpm ou bun
 
-### 1. Clone o repositório
+### 1. Clone o repositorio
 
 ```bash
-git clone [URL_DO_REPOSITORIO]
+git clone <URL_DO_REPOSITORIO>
 cd happy-game-nextjs
 ```
 
-### 2. Instale as dependências
+### 2. Instale as dependencias
 
 ```bash
 npm install
-# ou
-yarn install
-# ou
-pnpm install
 ```
 
-### 3. Configure variáveis de ambiente
+### 3. Configure as variaveis de ambiente
 
 Crie um arquivo `.env.local` na raiz do projeto:
 
 ```env
 # NextAuth
 NEXTAUTH_URL=http://localhost:3000
-NEXTAUTH_SECRET=your-secret-here
+NEXTAUTH_SECRET=<gere com: openssl rand -base64 32>
 
-# Base URL (opcional)
-NEXT_PUBLIC_BASE_URL=http://localhost:3000
+# Google OAuth (opcional)
+GOOGLE_CLIENT_ID=<seu-google-client-id>
+GOOGLE_CLIENT_SECRET=<seu-google-client-secret>
+
+# Supabase
+NEXT_PUBLIC_SUPABASE_URL=<url-do-projeto-supabase>
+NEXT_PUBLIC_SUPABASE_ANON_KEY=<anon-key>
+SUPABASE_SERVICE_ROLE_KEY=<service-role-key>
+
+# RAWG API (opcional — usa mock se ausente)
+RAWG_API_KEY=<sua-rawg-api-key>
+
+# UEBA Admin (protege as rotas /api/admin/ueba/*)
+UEBA_ADMIN_SECRET=<segredo-aleatorio>
 ```
 
 ### 4. Execute o servidor de desenvolvimento
 
 ```bash
 npm run dev
-# ou
-yarn dev
-# ou
-pnpm dev
 ```
 
-O site estará disponível em `http://localhost:3000`
+Acesse em `http://localhost:3000`.
 
-### 5. Build para produção
+### 5. Build para producao
 
 ```bash
 npm run build
 npm run start
 ```
 
-Os arquivos otimizados serão gerados na pasta `.next/`
+---
 
-## 📜 Scripts Disponíveis
+## Scripts Disponiveis
 
-- `npm run dev` - Inicia o servidor de desenvolvimento (porta 3000)
-- `npm run build` - Cria build otimizado de produção
-- `npm run start` - Inicia o servidor de produção
-- `npm run lint` - Executa o linter ESLint
-
-## 🗂️ Rotas da Aplicação
-
-### Rotas Públicas
-
-- `/` - Página inicial (home)
-- `/historia` - História dos videogames
-- `/plataforma` - Recursos da plataforma e equipe
-- `/cadastro` - Formulário de cadastro
-- `/login` - Formulário de login
-- `/feedback` - Página de confirmação após cadastro
-
-### Rotas Privadas (Requerem Autenticação)
-
-- `/perfil` - Perfil do usuário logado
-
-### API Routes
-
-- `/api/auth/[...nextauth]` - Endpoints de autenticação NextAuth
-  - `/api/auth/signin` - Login
-  - `/api/auth/signout` - Logout
-  - `/api/auth/session` - Sessão atual
-
-## 🔐 Sistema de Autenticação
-
-O projeto utiliza **NextAuth.js** para autenticação:
-
-### Configuração
-
-- **Provider**: Credentials (email e senha)
-- **Session Strategy**: JWT
-- **Middleware**: Proteção de rotas em `middleware.ts`
-- **SessionProvider**: Context para acesso à sessão no client
-
-### Rotas Protegidas
-
-O middleware intercepta requisições e redireciona usuários não autenticados:
-
-```typescript
-// src/middleware.ts
-export { default } from "next-auth/middleware";
-
-export const config = {
-  matcher: ["/perfil/:path*", "/admin/:path*"],
-};
-```
-
-## 🎨 Modo Claro/Escuro (Theme Toggle)
-
-O projeto implementa tema claro e escuro usando:
-
-- CSS variables para cores dinâmicas
-- Componente `ThemeToggle` para alternar temas
-- Classes Tailwind com prefixo `dark:`
-- Persistência da preferência do usuário
-
-## 🔄 Server Components vs Client Components
-
-### Server Components (Padrão no App Router)
-
-- Páginas em `/app/**/page.tsx`
-- Fetch de dados em JSON estático
-- Melhor performance e SEO
-
-### Client Components (com "use client")
-
-- Componentes interativos com estado
-- Hooks como useState, useEffect
-- Event handlers (onClick, onChange, etc.)
-- Exemplos: `ThemeToggle`, `SignupForm`, `KonamiCodeEasterEgg`
-
-## 🌟 Recursos Avançados
-
-### Easter Eggs
-
-- **Konami Code**: Digite ↑↑↓↓←→←→BA para ativar surpresa
-- **Floating Balloon**: Elemento animado na home
-- **Achievement Modal**: Sistema de conquistas
-
-### Performance
-
-- **Next.js Image**: Otimização automática de imagens
-- **Server Components**: Renderização no servidor
-- **Route Caching**: Cache de recursos JSON (revalidate: 3600)
-- **Code Splitting**: Carregamento sob demanda
-
-### Acessibilidade
-
-- **Radix UI**: Componentes com suporte a ARIA
-- **Keyboard Navigation**: Navegação por teclado
-- **Focus Management**: Gerenciamento de foco
-
-## 🧪 Boas Práticas Implementadas
-
-✅ **TypeScript**: Tipagem forte em todo o projeto
-✅ **App Router**: Arquitetura moderna do Next.js
-✅ **Server Components**: Performance otimizada
-✅ **Component Colocation**: Componentes próximos ao uso
-✅ **Modularização**: Componentes pequenos e reutilizáveis
-✅ **Separation of Concerns**: Hooks, types e components separados
-✅ **Route Groups**: Organização lógica de rotas
-✅ **Middleware**: Proteção de rotas
-✅ **API Routes**: Backend integrado
-✅ **Responsive Design**: Mobile-first com Tailwind
-
-## 👥 Equipe de Desenvolvimento
-
-- **Ana Larissa Mendes** - Frontend Developer [Github](https://github.com/annalare/)
-- **João Pedro Thethê Andrade** - Frontend Developer [Github](https://github.com/jaoshtt/)
-- **John Vitor Silverio Pereira** - Backend/Frontend Developer [Github](https://github.com/johnsilverio/)
-- **Lyniker Vinicius Santos de Oliveira** - Criador de conteúdo/Frontend Developer [Github](https://github.com/lynikerrr/)
-- **Vinícius Cardoso Junqueira** - Frontend Developer [Github](https://github.com/vinikrdoso/)
-
-## 📚 Recursos Úteis
-
-- [Documentação Next.js](https://nextjs.org/docs)
-- [Documentação NextAuth.js](https://next-auth.js.org/)
-- [Documentação Tailwind CSS](https://tailwindcss.com/docs)
-- [Documentação Radix UI](https://www.radix-ui.com/)
-- [Documentação TypeScript](https://www.typescriptlang.org/docs/)
-
-## 🚀 Deploy
-
-### Vercel (Recomendado)
-
-```bash
-# Instale a CLI do Vercel
-npm i -g vercel
-
-# Deploy
-vercel
-```
-
-## 📄 Licença
-
-Projeto desenvolvido como parte da Graduação da FIAP em Sistemas de Informação.
+| Script | Descricao |
+|---|---|
+| `npm run dev` | Servidor de desenvolvimento (porta 3000) |
+| `npm run build` | Build otimizado para producao |
+| `npm run start` | Servidor de producao |
+| `npm run lint` | ESLint |
+| `npm run storybook` | Storybook na porta 6006 |
+| `npm run build-storybook` | Build estático do Storybook |
 
 ---
 
-_Desenvolvido com ❤️ pela equipe Happy Game usando Next.js 16 e React 19_
+## Autenticacao
+
+O projeto usa **NextAuth.js** com:
+
+- **Credentials Provider** — email e senha
+- **Google Provider** — OAuth 2.0
+- **JWT Session** — sessoes sem banco de sessoes
+- **Middleware** — redireciona usuarios nao autenticados nas rotas privadas
+
+```typescript
+// src/middleware.ts
+export const config = {
+  matcher: ["/feed/:path*", "/acervo/:path*", "/perfil/:path*", "/admin/:path*"],
+};
+```
+
+---
+
+## Storybook
+
+Componentes documentados com Storybook + addon de acessibilidade:
+
+```bash
+npm run storybook   # http://localhost:6006
+```
+
+Arquivos `.stories.tsx` existentes: `Avatar`, `Badge`, `Button`, `FrameIcon`, `Icon`, `Input`, `MetacriticScore`, `NavigationButton`, `Select`, `Textarea`, `Typography`, `Navbar`, `PostItem`.
+
+---
+
+## Boas Praticas
+
+- TypeScript em todo o projeto
+- App Router com Server Components por padrao
+- Client Components apenas onde ha interatividade
+- Colocation de componentes (`_components/` junto a cada rota)
+- Hooks customizados extraidos em `hooks/`
+- Tipos TypeScript em `types.ts` por dominio
+- Route Groups `(public)` e `(private)` com layouts distintos
+- Fallback para mock quando APIs externas nao estao configuradas
+
+---
+
+## Equipe de Desenvolvimento
+
+| Nome | Funcao | GitHub |
+|---|---|---|
+| Ana Larissa Mendes | Frontend Developer | [annalare](https://github.com/annalare/) |
+| Joao Pedro Thethe Andrade | Frontend Developer | [jaoshtt](https://github.com/jaoshtt/) |
+| John Vitor Silverio Pereira | Backend/Frontend Developer | [johnsilverio](https://github.com/johnsilverio/) |
+| Lyniker Vinicius Santos de Oliveira | Conteudo/Frontend Developer | [lynikerrr](https://github.com/lynikerrr/) |
+| Vinicius Cardoso Junqueira | Frontend Developer | [vinikrdoso](https://github.com/vinikrdoso/) |
+
+---
+
+## Referencias
+
+- [Documentacao Next.js](https://nextjs.org/docs)
+- [Documentacao NextAuth.js](https://next-auth.js.org/)
+- [Documentacao Supabase](https://supabase.com/docs)
+- [RAWG API](https://rawg.io/apidocs)
+- [Documentacao Tailwind CSS](https://tailwindcss.com/docs)
+- [Documentacao Radix UI](https://www.radix-ui.com/)
+- [Storybook](https://storybook.js.org/)
+
+---
+
+## Deploy
+
+### Vercel (recomendado)
+
+```bash
+npm i -g vercel
+vercel
+```
+
+Configure todas as variaveis de ambiente listadas acima no painel da Vercel.
+
+---
+
+## Licenca
+
+Projeto desenvolvido como parte da Graduacao da FIAP em Sistemas de Informacao.
